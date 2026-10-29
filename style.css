@@ -82,6 +82,9 @@ section{position:relative}
 [hidden]{display:none!important}
 /* 줄바꿈: br.pc 는 넓은 화면에서만, .nb 는 한 덩어리로 유지 */
 br.pc{display:none}
+/* 옆에 그림 없이 넓게 쓰는 문단: 문장 중간에서 끊지 않고 한 문장을 한 줄로 (문장 끝 줄바꿈만 유지) */
+.wide{max-width:none!important}
+.wide br.pc{display:none!important}
 .nb{white-space:nowrap}
 p,dd,figcaption span{text-wrap:pretty}
 h1,h2,h3,.h2{text-wrap:balance}
