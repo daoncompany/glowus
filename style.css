@@ -105,7 +105,9 @@ h1,h2,h3,.h2{text-wrap:balance}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .uc-track,.gal{cursor:grab}
 .uc-track img,.gal img{-webkit-user-drag:none;user-select:none}
-.marquee span{font-size:clamp(1.1rem,3.6vw,1.6rem);font-weight:800;letter-spacing:.02em;padding-right:48px;white-space:nowrap;color:rgba(238,245,251,.22)}
+.marquee span{font-size:clamp(1.1rem,3.6vw,1.6rem);font-weight:800;letter-spacing:.02em;padding-right:48px;white-space:nowrap;color:rgba(238,245,251,.22);transition:color .25s,text-shadow .35s}
+/* 마우스가 올라간 문구만 포인트 색으로 켜짐 */
+.marquee span:hover{color:var(--glow);text-shadow:0 0 18px rgba(95,243,255,.55),0 0 2px rgba(95,243,255,.6)}
 .marquee span b{color:var(--glow);font-weight:800}
 @keyframes flow{to{transform:translateX(-50%)}}
 
