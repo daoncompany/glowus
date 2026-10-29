@@ -53,6 +53,47 @@
   const menu = $('#menu');
   menu?.addEventListener('click', e => { if (e.target.closest('a')) menu.hidePopover(); });
 
-  window.G = { $, $$, reduce, clamp, progress, onFrame: f => { jobs.push(f); onScroll(); } };
+  /* 가로 사진 줄: 3초마다 한 장씩 자동 넘김(끝에서 처음으로) + 마우스로 끌어 넘기기.
+     마우스를 올리거나·만지거나·키보드로 들어오면 멈추고, 화면 밖이면 쉼 */
+  const autoRoll = (track, items) => {
+    const step = () => items[1].offsetLeft - items[0].offsetLeft;
+    let hold = false, seen = false;
+    const pause = () => { hold = true; }, play = () => { hold = false; };
+    track.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') pause(); });
+    track.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') play(); });
+    track.addEventListener('focusin', pause);
+    track.addEventListener('focusout', play);
+    track.addEventListener('touchstart', pause, { passive: true });
+    track.addEventListener('touchend', () => setTimeout(play, 4000), { passive: true }); // 손 뗀 뒤 잠시 기다렸다 다시
+    new IntersectionObserver(([e]) => { seen = e.isIntersecting; }, { threshold: .3 }).observe(track);
+
+    // 마우스 끌기: 잡은 지점 그대로 1:1로 따라오고, 놓으면 스냅이 가까운 장에 맞춤
+    let x0 = 0, s0 = 0, drag = false;
+    track.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse' || e.button) return;
+      drag = true; x0 = e.clientX; s0 = track.scrollLeft;
+      track.style.scrollSnapType = 'none'; track.style.cursor = 'grabbing';
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', e => { if (drag) track.scrollLeft = s0 - (e.clientX - x0); });
+    const end = () => {
+      if (!drag) return; drag = false;
+      track.style.scrollSnapType = ''; track.style.cursor = '';
+      const i = Math.round(track.scrollLeft / step());
+      track.scrollTo({ left: i * step(), behavior: reduce ? 'auto' : 'smooth' });
+    };
+    track.addEventListener('pointerup', end);
+    track.addEventListener('pointercancel', end);
+    track.addEventListener('dragstart', e => e.preventDefault()); // 사진이 끌려 나가지 않게
+
+    if (reduce) return; // 움직임 줄이기 설정이면 자동 넘김 없음
+    setInterval(() => {
+      if (hold || drag || !seen || document.hidden) return;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step(), behavior: 'smooth' });
+    }, 3000);
+  };
+
+  window.G = { $, $$, reduce, clamp, progress, autoRoll, onFrame: f => { jobs.push(f); onScroll(); } };
   onScroll();
 })();

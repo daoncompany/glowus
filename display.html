@@ -10,7 +10,7 @@
 <meta property="og:image" content="assets/el/hero-arc.webp">
 <meta name="theme-color" content="#050d18">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261029">
 <style>
 /* 이 페이지 전용. 장(FLD/EL)마다 강조색이 바뀜 */
 #fld{--acc:#5ff3ff;--acc-soft:rgba(95,243,255,.12)}
@@ -71,6 +71,17 @@
 @keyframes pulseY{from{top:-40%}to{top:100%}}
 .flow-note{margin-top:20px;padding:20px;border-radius:18px;background:#fff;display:grid;place-items:center}
 .flow-note img{max-height:220px;width:auto}
+/* 구동 방식: 왼쪽 설명+짧은 표, 오른쪽 흐름 카드+그림 */
+.tbl.compact{margin-top:28px}
+.tbl.compact h4{padding:12px 18px;font-size:.8125rem}
+.tbl.compact .r{grid-template-columns:118px 1fr;padding:10px 18px;font-size:.875rem}
+.tbl.compact .r dt{font-size:.8125rem}
+/* 2단 블록이 모바일에서 위아래로 쌓일 때 사이 간격 (PC 2단에선 grid gap 이 대신함) */
+.two-col>div+div{margin-top:72px}
+.flow-sec>.flow-col{margin-top:40px}
+.flow-col .flow{margin-top:0}
+.flow-col .flow-note{margin-top:14px;padding:24px}
+.flow-col .flow-note img{width:100%;max-height:180px;object-fit:contain}
 
 .stats4{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px}
 .stats4 div{padding:20px 16px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
@@ -173,6 +184,7 @@
   .tbl .r dd small{display:inline;margin:0}
   .tbl .r dd+dd{grid-column:auto}
   .tbl .r.two{grid-template-columns:160px 1fr}
+  .tbl.compact .r.two{grid-template-columns:130px 1fr}
 }
 @keyframes pulseX{from{left:-40%}to{left:100%}}
 @media (min-width:1024px){
@@ -180,6 +192,13 @@
   .gal figure{flex-basis:31%}
   .cgrid{grid-template-columns:repeat(3,1fr)}
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  /* 표를 읽는 동안 오른쪽 흐름·그림이 옆에 머묾 */
+  .two-col>div+div,.flow-sec>.flow-col{margin-top:0}
+  .flow-col{position:sticky;top:150px}
+  .flow-col .flow{grid-template-columns:1fr 24px 1fr 24px 1fr}
+  .flow-col .node{padding:16px 8px}
+  .flow-col .node b{font-size:.9375rem}
+  .flow-col .node small{font-size:.75rem;display:block;line-height:1.4;margin-top:2px}
 }
 @media (prefers-reduced-motion:reduce){
   .d-hero .bg,.ch-photo img{transform:none!important}
@@ -200,7 +219,7 @@
       <a href="display.html" class="nav-page on" aria-current="page">FLD / EL Display</a>
     </nav>
     <div class="hd-act">
-      <a href="index.html?type=custom#order" class="btn btn-glow">적용 상담</a>
+      <a href="index.html?type=custom#order" class="btn btn-glow">맞춤제작 상담</a>
       <button type="button" class="menu-btn" popovertarget="menu" aria-label="메뉴 열기"><i></i><i></i></button>
     </div>
   </div>
@@ -219,7 +238,7 @@
   <div class="wrap">
     <p class="eyebrow rise" style="--i:0">GLOWUS DISPLAY SOLUTIONS</p>
     <h1 class="rise" style="--i:1">빛과 정보를<br><em>함께 전달하는</em><br>면발광 디스플레이</h1>
-    <p class="desc rise" style="--i:2">별도의 백라이트 없이 발광면 전체가 고르게 빛나, 문자·로고·픽토그램 같은 정보를 야간에도 직접 보여줍니다. 제품과 현장에 맞춰 설계하는 글로우어스의 FLD와 EL Display를 소개합니다.</p>
+    <p class="desc rise" style="--i:2">별도의 백라이트 없이 발광면 전체가 고르게 빛나,<br class="pc"> 문자·로고·픽토그램 같은 정보를 야간에도 직접 보여줍니다.<br>제품과 현장에 맞춰 설계하는<br class="pc"> 글로우어스의 <span class="nb">FLD와 EL Display를</span> 소개합니다.</p>
   </div>
 </section>
 
@@ -233,13 +252,13 @@
       <a href="#fld" id="pairFld" style="--acc:#5ff3ff;--acc-soft:rgba(95,243,255,.12)" data-reveal>
         <span class="tag">FLD · WEARABLE</span>
         <h3>FLD</h3>
-        <p>제품에 밀착되는 초박형 면발광 디스플레이. 의류·안전모·밴드 같은 웨어러블 안전 제품에.</p>
+        <p>제품에 밀착되는 초박형 면발광 디스플레이.<br>의류·안전모·밴드 같은 웨어러블 안전 제품에.</p>
         <ul><li>발광부 0.1mm 미만</li><li>DC 3.7V</li><li>직물·곡면 적용</li></ul>
       </a>
       <a href="#el" style="--acc:#62e6a7;--acc-soft:rgba(98,230,167,.12)" data-reveal>
         <span class="tag">EL DISPLAY · FACILITY</span>
         <h3>EL Display</h3>
-        <p>얇고 유연한 면발광 디스플레이. 도로 표지·시설물·이동형 장비·안내 경관에.</p>
+        <p>얇고 유연한 면발광 디스플레이.<br>도로 표지·시설물·이동형 장비·안내 경관에.</p>
         <ul><li>DC 12V</li><li>낮은 발열</li><li>빛공해 없음</li></ul>
       </a>
     </div>
@@ -255,7 +274,7 @@
         <p class="ch-title" data-reveal style="--i:1">FLD</p>
         <p class="ch-sub" data-reveal style="--i:1">Flexible Luminescence Display</p>
         <h2 class="h2" data-reveal style="--i:2">제품에 밀착되는<br>초박형 면발광 디스플레이</h2>
-        <p class="lead" data-reveal style="--i:3">FLD는 EL 면발광 기술을 제품의 형태와 사용 환경에 맞게 설계한 초박형 발광 디스플레이입니다. 문자, 로고, 픽토그램과 같은 정보를 얇고 유연한 발광면으로 구현해 야간 안전 제품과 웨어러블 장비에 적용할 수 있습니다.</p>
+        <p class="lead" data-reveal style="--i:3">FLD는 EL 면발광 기술을 제품의 형태와 사용 환경에 맞게 설계한<br class="pc"> 초박형 발광 디스플레이입니다.<br>문자, 로고, 픽토그램과 같은 정보를 얇고 유연한 발광면으로 구현해<br class="pc"> 야간 안전 제품과 웨어러블 장비에 적용할 수 있습니다.</p>
       </div>
       <div class="ch-photo" data-parallax data-reveal><img src="assets/fld/hero-vest.webp" alt="FLD 발광 띠를 적용한 안전조끼와 안전모를 착용한 작업자" loading="lazy"></div>
     </div>
@@ -267,13 +286,22 @@
       <article data-reveal style="--i:3"><span class="ic">04</span><h3>맞춤형 정보 표현</h3><p>로고, 안전 문구, 방향, 상태 표시를 제품 목적에 맞게 발광 디자인으로 제작합니다.</p></article>
     </div>
 
-    <div class="two-col" style="margin-top:110px">
+    <div class="two-col flow-sec" style="margin-top:110px">
       <div>
         <p class="eyebrow" data-reveal>FUNCTION AND POWER FLOW</p>
         <h3 class="h2" data-reveal style="--i:1">주요 기능 및<br>구동 방식</h3>
-        <p class="lead" data-reveal style="--i:2">휴대형 FLD는 저전압 직류 전원을 전용 인버터에서 발광용 교류 전원으로 변환해 작동합니다. 3.7V 시스템 입력전압이며, 발광 필름에는 제품별로 설계된 인버터 출력이 공급됩니다.</p>
+        <p class="lead" data-reveal style="--i:2">휴대형 FLD는 저전압 직류 전원을 전용 인버터에서<br class="pc"> 발광용 교류 전원으로 변환해 작동합니다.<br>3.7V 시스템 입력전압이며,<br class="pc"> 발광 필름에는 제품별로 설계된 인버터 출력이 공급됩니다.</p>
+      <dl class="tbl compact" data-reveal style="--i:3">
+      <h4>주요 기능 및 특징</h4>
+      <div class="r two"><dt>균일한 면발광</dt><dd>설계된 발광면 전체에서 고르게 빛을 표현</dd></div>
+      <div class="r two"><dt>문자 및 로고 발광</dt><dd>안전 문구, 로고와 그래픽을 발광 형태로 제작</dd></div>
+      <div class="r two"><dt>상시 및 점멸</dt><dd>인버터 또는 컨트롤러를 이용해 지속 발광과 점멸 구현</dd></div>
+      <div class="r two"><dt>초박형 구조</dt><dd>발광부 기준 0.1mm 미만의 두께로 의류 및 다양한 제품에 밀착 적용</dd></div>
+      <div class="r two"><dt>유연한 구조</dt><dd>얇고 유연하여 섬유원단에 적용 가능</dd></div>
+      <div class="r two"><dt>맞춤 제작</dt><dd>제품의 크기, 형상과 발광 영역에 맞춰 제작</dd></div>
+    </dl>
       </div>
-      <div>
+      <div class="flow-col">
         <div class="flow" data-reveal>
           <div class="node"><b>DC 3.7V</b><small>인버터 내장 배터리</small></div>
           <span class="wire" aria-hidden="true"></span>
@@ -284,16 +312,6 @@
         <div class="flow-note" data-reveal><img src="assets/fld/layers.webp" alt="FLD 구조: 인쇄층, 전극층, 발광층, 전극층, 보호층과 인버터. 인쇄층 0.1mm 이내" loading="lazy"></div>
       </div>
     </div>
-
-    <dl class="tbl" data-reveal style="margin-top:56px">
-      <h4>주요 기능 및 특징</h4>
-      <div class="r two"><dt>균일한 면발광</dt><dd>설계된 발광면 전체에서 고르게 빛을 표현</dd></div>
-      <div class="r two"><dt>문자 및 로고 발광</dt><dd>안전 문구, 로고와 그래픽을 발광 형태로 제작</dd></div>
-      <div class="r two"><dt>상시 및 점멸</dt><dd>인버터 또는 컨트롤러를 이용해 지속 발광과 점멸 구현</dd></div>
-      <div class="r two"><dt>초박형 구조</dt><dd>발광부 기준 0.1mm 미만의 두께로 의류 및 다양한 제품에 밀착 적용</dd></div>
-      <div class="r two"><dt>유연한 구조</dt><dd>얇고 유연하여 섬유원단에 적용 가능</dd></div>
-      <div class="r two"><dt>맞춤 제작</dt><dd>제품의 크기, 형상과 발광 영역에 맞춰 제작</dd></div>
-    </dl>
 
     <p class="eyebrow" style="margin-top:110px" data-reveal>PERFORMANCE AND SPECIFICATIONS</p>
     <h3 class="h2" data-reveal style="--i:1">FLD 기술 사양</h3>
@@ -319,13 +337,13 @@
       <div class="r"><dt>발광 방식</dt><dd><b>상시·점멸·순차</b></dd><dd><small>인버터와 컨트롤러 구성에 따라 달라짐</small></dd></div>
       <div class="r"><dt>예상 수명</dt><dd><b>8,000~12,000 h</b></dd><dd><small>발광 방식 및 환경에 따라 달라짐</small></dd></div>
     </dl>
-    <p class="tbl-note" data-reveal><b>밝기와 수명</b> 구동 전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있으므로, 사용 목적에 맞는 구동 조건을 적용해야 합니다.</p>
+    <p class="tbl-note" data-reveal><b>밝기와 수명</b> 구동 전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있으므로,<br class="pc"> 사용 목적에 맞는 구동 조건을 적용해야 합니다.</p>
 
     <div class="gal-hint" style="margin-top:110px">
       <div>
         <p class="eyebrow" data-reveal>APPLICATION</p>
         <h3 class="h2" data-reveal style="--i:1">빛과 정보를 함께 전달하는<br>웨어러블 안전 솔루션</h3>
-        <p class="lead" data-reveal style="--i:2">FLD는 사람과 장비의 위치를 밝히는 데 그치지 않고, 문자·기호·방향·상태 정보를 제품 표면에서 직접 보여줍니다. 얇고 가벼운 구조로 기존 안전용품의 착용감과 형태를 유지하면서 야간 식별성을 높일 수 있습니다.</p>
+        <p class="lead" data-reveal style="--i:2">FLD는 사람과 장비의 위치를 밝히는 데 그치지 않고,<br class="pc"> 문자·기호·방향·상태 정보를 제품 표면에서 직접 보여줍니다.<br>얇고 가벼운 구조로 기존 안전용품의 착용감과 형태를 유지하면서<br class="pc"> 야간 식별성을 높일 수 있습니다.</p>
       </div>
     </div>
   </div>
@@ -363,7 +381,7 @@
         <h3 class="h2" data-reveal style="--i:1">글로우어스 FLD 제품</h3>
         <ul class="lineup">
           <li data-reveal><b>스마트 텐션 레깅스</b><p>러닝, 라이딩, 등산, 낚시 등 야간 활동에 최적화된 스포츠웨어 레깅스</p></li>
-          <li data-reveal><b>고시인성 안전모 스트랩</b><p>초경량·초박형 디스플레이를 스티커처럼 헬멧에 부착. 눈부심 없이 가시성 좋은 라이팅</p></li>
+          <li data-reveal><b>고시인성 안전모 스트랩</b><p>초경량·초박형 디스플레이를 스티커처럼 헬멧에 부착.<br>눈부심 없이 가시성 좋은 라이팅</p></li>
           <li data-reveal><b>고시인성 야간안전 스트랩</b><p>원하는 곳 어디에든 부착 가능. 야간 작업자의 안전사고 예방</p></li>
           <li data-reveal><b>야간안전 퀵밴드</b><p>가장 심플하고 휴대성 좋은 밴드 하나로 야간 활동을 안전하게</p></li>
           <li data-reveal><b>리플렉티브 셔츠</b><p>타필름보다 휘도와 강도를 강화해 적은 빛으로도 뛰어난 반사 효과</p></li>
@@ -373,7 +391,7 @@
 
     <p class="eyebrow" style="margin-top:110px" data-reveal>CUSTOM DEVELOPMENT</p>
     <h3 class="h2" data-reveal style="--i:1">FLD 제작 단가</h3>
-    <p class="lead" data-reveal style="--i:2">FLD는 적용 제품의 형태, 발광 면적, 전원과 제어 방식, 보호 마감에 따라 설계가 달라지는 주문 제작 제품입니다. 구체적인 가격은 적용 사양과 예상 수량을 확인한 후 산정합니다.</p>
+    <p class="lead" data-reveal style="--i:2">FLD는 적용 제품의 형태, 발광 면적, 전원과 제어 방식, 보호 마감에 따라<br class="pc"> 설계가 달라지는 주문 제작 제품입니다.<br>구체적인 가격은 적용 사양과 예상 수량을 확인한 후 산정합니다.</p>
     <div class="cost" data-reveal>
       <p class="k">최초 개발비 (디자인 설계비)</p>
       <p class="v">약 200만원 전후</p>
@@ -388,7 +406,7 @@
       <div class="r"><dt>제품 단가</dt><dd><b>발광 면적·재료·인버터·마감·수량</b></dd><dd><small>최종 디자인과 발주 수량 확정 후 산정</small></dd></div>
       <div class="r"><dt>시험 및 인증</dt><dd><b>방수·내환경·전기전자 시험 요구 조건</b></dd><dd><small>필요 항목과 수행 기관에 따라 별도 산정</small></dd></div>
     </dl>
-    <p class="tbl-note" data-reveal><b>문의 전 준비하면 좋은 자료</b> 제품 사진 또는 도면, 희망 발광 이미지, 적용 위치와 크기, 사용 환경, 예상 수량을 함께 전달하면 적용 가능성과 개발 범위를 빠르게 검토할 수 있습니다.</p>
+    <p class="tbl-note" data-reveal><b>문의 전 준비하면 좋은 자료</b> 제품 사진 또는 도면, 희망 발광 이미지, 적용 위치와 크기, 사용 환경, 예상 수량을 함께 전달하면<br class="pc"> 적용 가능성과 개발 범위를 빠르게 검토할 수 있습니다.</p>
   </div>
 </section>
 
@@ -401,7 +419,7 @@
         <p class="ch-title" data-reveal style="--i:1">EL</p>
         <p class="ch-sub" data-reveal style="--i:1">Electroluminescent Surface-Lighting Display</p>
         <h2 class="h2" data-reveal style="--i:2">얇고 유연한<br>면발광 디스플레이</h2>
-        <p class="lead" data-reveal style="--i:3">EL Display는 전극 사이의 발광층에 전기장을 형성해 패널 자체가 빛을 내는 면발광 디스플레이입니다. 별도의 백라이트 없이 발광면 전체가 균일하게 빛나 문자, 로고, 픽토그램과 같은 정보를 직관적으로 표현할 수 있습니다. 얇고 가벼우며 발열 부담이 적어 안전표지, 시설물, 이동형 장비, 안내·경관용 표시 등 다양한 분야에 적용할 수 있습니다.</p>
+        <p class="lead" data-reveal style="--i:3">EL&nbsp;Display는 전극 사이의 발광층에 전기장을 형성해<br class="pc"> 패널 자체가 빛을 내는 면발광 디스플레이입니다.<br>별도의 백라이트 없이 발광면 전체가 균일하게 빛나<br class="pc"> 문자, 로고, 픽토그램과 같은 정보를 직관적으로 표현할 수 있습니다.<br>얇고 가벼우며 발열 부담이 적어<br class="pc"> 안전표지, 시설물, 이동형 장비, 안내·경관용 표시 등 다양한 분야에 적용할 수 있습니다.</p>
       </div>
       <div class="ch-photo" data-parallax data-reveal><img src="assets/el/speed50.webp" alt="야간 도로에 설치된 EL 발광 제한속도 50 표지" loading="lazy"></div>
     </div>
@@ -416,7 +434,7 @@
     <div class="eco" data-reveal>
       <p class="eyebrow">ECO FRIENDLY DISPLAY</p>
       <h3 class="h2">빛공해 없는<br>친환경 디스플레이</h3>
-      <p class="lead">과도한 야간조명은 눈부심과 생체리듬 교란, 야간 운전자의 시인성 저하를 일으키고 생태계 리듬에도 영향을 줄 수 있습니다. EL Display는 더 많은 빛이 아니라 더 정확한 빛으로, 과도한 밝기는 줄이고 시인성은 선명하게 표현합니다.</p>
+      <p class="lead">과도한 야간조명은 눈부심과 생체리듬 교란, 야간 운전자의 시인성 저하를 일으키고<br class="pc"> 생태계 리듬에도 영향을 줄 수 있습니다.<br>EL&nbsp;Display는 더 많은 빛이 아니라 더 정확한 빛으로,<br class="pc"> 과도한 밝기는 줄이고 시인성은 선명하게 표현합니다.</p>
       <ul>
         <li><b>&gt; 99.5%</b>균일도 (블랙홀 거의 없음)</li>
         <li><b>면광원</b>필름 타입, 디자인 가능</li>
@@ -427,13 +445,22 @@
       </ul>
     </div>
 
-    <div class="two-col" style="margin-top:110px">
+    <div class="two-col flow-sec" style="margin-top:110px">
       <div>
         <p class="eyebrow" data-reveal>FUNCTION AND POWER FLOW</p>
         <h3 class="h2" data-reveal style="--i:1">주요 기능 및<br>구동 방식</h3>
-        <p class="lead" data-reveal style="--i:2">EL Display는 전용 인버터를 통해 공급되는 교류 전압과 주파수에 의해 발광합니다. DC 12V는 시스템 입력 전압이며, EL 시트에는 인버터에서 변환된 고주파 교류 전압이 공급됩니다.</p>
+        <p class="lead" data-reveal style="--i:2">EL&nbsp;Display는 전용 인버터를 통해 공급되는<br class="pc"> 교류 전압과 주파수에 의해 발광합니다.<br>DC&nbsp;12V는 시스템 입력 전압이며,<br class="pc"> EL 시트에는 인버터에서 변환된 고주파 교류 전압이 공급됩니다.</p>
+      <dl class="tbl compact" data-reveal style="--i:3">
+      <h4>주요 기능</h4>
+      <div class="r two"><dt>균일한 면발광</dt><dd>설계된 발광면 전체에서 고르게 빛을 표현</dd></div>
+      <div class="r two"><dt>문자 및 로고 발광</dt><dd>안전 문구, 로고와 그래픽을 발광 형태로 제작</dd></div>
+      <div class="r two"><dt>상시 및 점멸</dt><dd>인버터 또는 컨트롤러를 이용해 지속 발광과 점멸 구현</dd></div>
+      <div class="r two"><dt>순차 발광</dt><dd>발광 영역을 채널별로 구분하여 순차 작동</dd></div>
+      <div class="r two"><dt>곡면 적용</dt><dd>얇고 유연한 구조로 완만한 곡면에 적용</dd></div>
+      <div class="r two"><dt>맞춤 제작</dt><dd>제품의 크기, 형상과 발광영역에 맞춰 제작</dd></div>
+    </dl>
       </div>
-      <div>
+      <div class="flow-col">
         <div class="flow" data-reveal>
           <div class="node"><b>DC 12V</b><small>배터리 / 전원</small></div>
           <span class="wire" aria-hidden="true"></span>
@@ -444,16 +471,6 @@
         <div class="flow-note" data-reveal><img src="assets/el/layers.webp" alt="EL Display 적층 구조와 인버터 연결" loading="lazy"></div>
       </div>
     </div>
-
-    <dl class="tbl" data-reveal style="margin-top:56px">
-      <h4>주요 기능</h4>
-      <div class="r two"><dt>균일한 면발광</dt><dd>설계된 발광면 전체에서 고르게 빛을 표현</dd></div>
-      <div class="r two"><dt>문자 및 로고 발광</dt><dd>안전 문구, 로고와 그래픽을 발광 형태로 제작</dd></div>
-      <div class="r two"><dt>상시 및 점멸</dt><dd>인버터 또는 컨트롤러를 이용해 지속 발광과 점멸 구현</dd></div>
-      <div class="r two"><dt>순차 발광</dt><dd>발광 영역을 채널별로 구분하여 순차 작동</dd></div>
-      <div class="r two"><dt>곡면 적용</dt><dd>얇고 유연한 구조로 완만한 곡면에 적용</dd></div>
-      <div class="r two"><dt>맞춤 제작</dt><dd>제품의 크기, 형상과 발광영역에 맞춰 제작</dd></div>
-    </dl>
 
     <p class="eyebrow" style="margin-top:110px" data-reveal>PERFORMANCE AND SPECIFICATIONS</p>
     <h3 class="h2" data-reveal style="--i:1">EL Display 기술 사양</h3>
@@ -482,13 +499,13 @@
       <div class="r"><dt>예상 수명</dt><dd><b>8,000–12,000시간</b></dd><dd><small>허용범위 ±15%, 사용조건에 따라 달라짐</small></dd></div>
       <div class="r"><dt>발광 방식</dt><dd><b>상시, 점멸, 순차</b></dd><dd><small>인버터와 컨트롤러 구성에 따라 달라짐</small></dd></div>
     </dl>
-    <p class="tbl-note" data-reveal><b>밝기와 수명</b> 구동전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있어, 사용 목적에 맞는 구동조건을 적용해야 합니다.</p>
+    <p class="tbl-note" data-reveal><b>밝기와 수명</b> 구동전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있어,<br class="pc"> 사용 목적에 맞는 구동조건을 적용해야 합니다.</p>
 
     <div class="gal-hint" style="margin-top:110px">
       <div>
         <p class="eyebrow" data-reveal>EL DISPLAY CASES</p>
         <h3 class="h2" data-reveal style="--i:1">빛과 정보를 함께 전달하는<br>능동형 안전·안내 솔루션</h3>
-        <p class="lead" data-reveal style="--i:2">EL Display는 "어디에 있는가"뿐 아니라 문자·기호·방향·상태와 같은 정보를 야간에도 직접 보여줄 수 있습니다.</p>
+        <p class="lead" data-reveal style="--i:2">EL&nbsp;Display는 "어디에 있는가"뿐 아니라<br class="pc"> 문자·기호·방향·상태와 같은 정보를 야간에도 직접 보여줄 수 있습니다.</p>
       </div>
     </div>
   </div>
@@ -540,7 +557,7 @@
           <hr>
           <p class="k">제품 개당 단가 (제품별 상이)</p>
           <p class="v" style="font-size:1.25rem">주문 제작 방식으로 디자인이 나와야 산정 가능</p>
-          <p>EL Display는 대부분 주문 제작 형태로, 제품 사양이 결정되어야 구체적인 가격을 정할 수 있습니다. 최초 디자인 설계 비용 이후에는 개당 단가로 책정됩니다. 부득이하게 설계가 어려운 경우 설계비용 없이 개별 제작이 가능하나 별도의 확인이 필요합니다.</p>
+          <p>EL&nbsp;Display는 대부분 주문 제작 형태로,<br class="pc"> 제품 사양이 결정되어야 구체적인 가격을 정할 수 있습니다.<br>최초 디자인 설계 비용 이후에는 개당 단가로 책정됩니다.<br>부득이하게 설계가 어려운 경우 설계비용 없이 개별 제작이 가능하나<br class="pc"> 별도의 확인이 필요합니다.</p>
         </div>
       </div>
     </div>
@@ -590,7 +607,7 @@
   <div class="wrap">
     <p class="eyebrow" data-reveal>PRODUCT APPLICATION &amp; CO-DEVELOPMENT</p>
     <h2 class="h2" data-reveal style="--i:1">제품 적용 및 공동개발,<br>조건을 알려주시면 제안드립니다.</h2>
-    <p class="lead" data-reveal style="--i:2;margin-inline:auto">제품 사진 또는 도면, 희망 발광 이미지, 적용 위치와 크기, 사용 환경, 예상 수량을 함께 전달해 주시면 빠르게 검토합니다.</p>
+    <p class="lead" data-reveal style="--i:2;margin-inline:auto">제품 사진 또는 도면, 희망 발광 이미지, 적용 위치와 크기,<br class="pc"> 사용 환경, 예상 수량을 함께 전달해 주시면 빠르게 검토합니다.</p>
     <div class="cta" data-reveal style="--i:3">
       <a href="index.html?type=custom#order" class="btn btn-glow">현장맞춤상담 신청</a>
       <a href="tel:01034610063" class="btn btn-ghost">010-3461-0063</a>
@@ -620,7 +637,7 @@
   <a href="index.html?type=custom#order" class="btn btn-glow">현장맞춤상담 신청</a>
 </div>
 
-<script src="common.js"></script>
+<script src="common.js?v=20261029"></script>
 <script>
 (() => {
   const { $, $$, reduce, clamp, progress, onFrame } = G;
@@ -641,6 +658,9 @@
     sw.dataset.on = on;
     swLinks.forEach(a => a.classList.toggle('on', a.hash === '#' + on));
   });
+
+  /* 사진 갤러리: 자동 넘김 + 손·마우스로 넘기기 (common.js) */
+  $$('.gal').forEach(gal => G.autoRoll(gal, $$('figure', gal)));
 
   /* 개발 과정: 선이 차오르며 단계 점등 */
   const proc = $('#proc'), steps = $$('li', proc);
