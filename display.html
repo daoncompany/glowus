@@ -10,7 +10,7 @@
 <meta property="og:image" content="assets/el/hero-arc.webp">
 <meta name="theme-color" content="#050d18">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css?v=20261029-8">
+<link rel="stylesheet" href="style.css?v=20261029-9">
 <style>
 /* 이 페이지 전용. 장(FLD/EL)마다 강조색이 바뀜 */
 #fld{--acc:#5ff3ff;--acc-soft:rgba(95,243,255,.12)}
@@ -180,7 +180,11 @@
   .flow .wire::after{width:40%;height:100%;top:0;background:linear-gradient(90deg,transparent,var(--acc));animation-name:pulseX}
   .eco{padding:56px 48px 44px}
   .eco ul{grid-template-columns:repeat(3,1fr)}
-  .tbl .r{grid-template-columns:160px 180px 1fr}
+  /* 3칸 표: 가운데 칸은 한 줄로, 칸 너비는 표 전체가 함께 씀(subgrid) → 줄마다 설명 시작 위치가 같음 */
+  .tbl:has(>.r:not(.two)){display:grid;grid-template-columns:150px max-content minmax(0,1fr)}
+  .tbl:has(>.r:not(.two))>h4{grid-column:1/-1}
+  .tbl:has(>.r:not(.two))>.r{grid-column:1/-1;grid-template-columns:subgrid;column-gap:28px}
+  .tbl .r dd b{white-space:nowrap}
   .tbl .r dd small{display:inline;margin:0}
   .tbl .r dd+dd{grid-column:auto}
   .tbl .r.two{grid-template-columns:160px 1fr}
@@ -637,7 +641,7 @@
   <a href="index.html?type=custom#order" class="btn btn-glow">현장맞춤상담 신청</a>
 </div>
 
-<script src="common.js?v=20261029-8"></script>
+<script src="common.js?v=20261029-9"></script>
 <script>
 (() => {
   const { $, $$, reduce, clamp, progress, onFrame } = G;
