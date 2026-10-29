@@ -11,13 +11,13 @@
 <meta name="theme-color" content="#050d18">
 <link rel="preload" as="image" href="assets/hero-helmet.webp">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css?v=20261029-5">
+<link rel="stylesheet" href="style.css?v=20261029-6">
 </head>
 <body id="top">
 
 <header class="hd" id="hd">
   <div class="wrap hd-in">
-    <a href="index.html#top" class="logo"><i></i>GLOWUS ORDER</a>
+    <a href="index.html#top" class="logo"><i></i>GLOWUS</a>
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#why">제품 특징</a>
       <a href="#spec">제품 사양</a>
@@ -195,7 +195,7 @@
       </dl>
       <div>
         <p class="eyebrow" style="margin-top:56px" data-reveal>PACKAGE</p>
-        <h3 class="h2" style="font-size:clamp(1.5rem,5vw,2rem)" data-reveal>현장 테스트에 필요한<br>기본 구성을 담았습니다.</h3>
+        <h3 class="h2" style="font-size:var(--fs-36)" data-reveal>현장 테스트에 필요한<br>기본 구성을 담았습니다.</h3>
         <ul class="pkg">
           <li data-reveal style="--i:0"><span class="n">01</span><div><h3>발광 스트랩</h3><p>안전모 외부에 부착하는 초박형 면발광 스트랩</p></div></li>
           <li data-reveal style="--i:1"><span class="n">02</span><div><h3>전원 모듈</h3><p>발광 스트랩 구동 및 충전을 위한 분리형 인버터</p></div></li>
@@ -219,7 +219,7 @@
     </div>
 
     <p class="eyebrow" style="margin-top:72px" data-reveal>ORDER CONSULTING</p>
-    <h2 class="h2" style="font-size:clamp(1.5rem,5vw,2.25rem)" data-reveal>주문상담</h2>
+    <h2 class="h2" style="font-size:var(--fs-36)" data-reveal>주문상담</h2>
     <p class="lead" data-reveal>샘플 주문, 대량 구매·공공기관 납품, 로고·문구 적용, 현장 맞춤 제작, 공동개발 상담을<br class="pc"> 이곳에서 신청해 주세요.<br>내용을 확인한 뒤 담당자가 연락드립니다.</p>
 
     <form id="consult-form" class="checkout" method="post" action="#order" novalidate>
@@ -234,7 +234,7 @@
         </div>
         <div class="box">
           <div class="box-h"><span class="n">2</span><div><h3>상담 제품</h3><p data-show="sample">현장 테스트용 샘플은 기본 수량으로 고정됩니다.</p><p data-show="bulk custom" hidden>예상 수량과 적용 현장을 알려주시면 견적 검토가 빨라집니다.</p></div></div>
-          <div class="qty"><div><b>GLOWUS 안전모 야간안전 스트랩</b><small>공급가 25,000원 / 세트 · VAT 별도</small></div><output data-show="sample">10<small style="display:inline;font-size:.875rem"> 세트</small></output></div>
+          <div class="qty"><div><b>GLOWUS 안전모 야간안전 스트랩</b><small>공급가 25,000원 / 세트 · VAT 별도</small></div><output data-show="sample">10<small style="display:inline;font-size:var(--fs-14)"> 세트</small></output></div>
           <div class="fields two" data-show="bulk custom" hidden>
             <div class="f"><label for="c-qty">예상 수량</label><input id="c-qty" name="expectedQty" placeholder="예: 200세트"></div>
             <div class="f"><label for="c-use">적용 현장</label><input id="c-use" name="useCase" placeholder="예: 도로 야간 공사"></div>
@@ -274,7 +274,7 @@
         </dl>
         <dl data-show="bulk custom" hidden>
           <div><dt>상담 제품</dt><dd>GLOWUS 스트랩</dd></div>
-          <div class="total"><dt>견적</dt><dd style="font-size:1.125rem">상담 후 안내</dd></div>
+          <div class="total"><dt>견적</dt><dd style="font-size:var(--fs-18)">상담 후 안내</dd></div>
         </dl>
         <label class="agree"><input type="checkbox" name="agree" required> <span>상담을 위한 개인정보(회사명·담당자명·연락처·이메일·주소) 수집·이용에 동의합니다.<br>수집한 정보는 상담 완료 후 1년간 보관합니다.</span></label>
         <button type="submit" class="btn btn-glow">상담 신청하기</button>
@@ -314,7 +314,7 @@
 
 <footer class="ft-info">
   <div class="wrap">
-    <a href="#top" class="logo"><i></i>GLOWUS ORDER</a>
+    <a href="#top" class="logo"><i></i>GLOWUS</a>
     <p style="margin-top:6px">Night Safety Solutions</p>
     <dl>
       <div><dt>상호</dt><dd>주식회사 글로우어스</dd></div>
@@ -333,7 +333,7 @@
   <a href="#order" class="btn btn-glow" data-type="sample">샘플 주문상담</a>
 </div>
 
-<script src="common.js?v=20261029-5"></script>
+<script src="common.js?v=20261029-6"></script>
 <script>
 /* 상담 신청 받는 곳: apps-script/Code.gs 를 웹앱으로 배포한 뒤 나온 주소(…/exec)를 붙여넣기 */
 const CONSULT_ENDPOINT = 'https://script.google.com/macros/s/AKfycby71hdO5zYp68DzzYuTkZDIU9VqF2TW3SFcE9nLnraPucIoOqCJbDYQOBam6JDO9PFHCA/exec';
