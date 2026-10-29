@@ -10,7 +10,7 @@
 <meta property="og:image" content="assets/el/hero-arc.webp">
 <meta name="theme-color" content="#050d18">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css?v=20261029-7">
+<link rel="stylesheet" href="style.css?v=20261029-8">
 <style>
 /* 이 페이지 전용. 장(FLD/EL)마다 강조색이 바뀜 */
 #fld{--acc:#5ff3ff;--acc-soft:rgba(95,243,255,.12)}
@@ -120,8 +120,8 @@
 .cats p{color:var(--muted);font-size:var(--fs-14);margin-top:4px;letter-spacing:var(--ls-14)}
 
 .lineup{margin-top:28px;border-top:1px solid var(--line)}
-.lineup li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:20px 0;border-bottom:1px solid var(--line)}
-.lineup b{color:var(--acc);font-size:var(--fs-16);min-width:7.5em;letter-spacing:var(--ls-16)}
+.lineup li{list-style:none;display:grid;grid-template-columns:8.5em 1fr;gap:4px 16px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.lineup b{color:var(--acc);font-size:var(--fs-16);line-height:1.45;letter-spacing:var(--ls-16)}
 .lineup p{color:var(--muted);font-size:var(--fs-16);letter-spacing:var(--ls-16)}
 
 .fit{display:grid;gap:10px;margin-top:24px}
@@ -380,11 +380,11 @@
         <p class="eyebrow" data-reveal>GLOWUS FLD PRODUCTS</p>
         <h3 class="h2" data-reveal style="--i:1">글로우어스 FLD 제품</h3>
         <ul class="lineup">
-          <li data-reveal><b>스마트 텐션 레깅스</b><p>러닝, 라이딩, 등산, 낚시 등 야간 활동에 최적화된 스포츠웨어 레깅스</p></li>
-          <li data-reveal><b>고시인성 안전모 스트랩</b><p>초경량·초박형 디스플레이를 스티커처럼 헬멧에 부착.<br>눈부심 없이 가시성 좋은 라이팅</p></li>
-          <li data-reveal><b>고시인성 야간안전 스트랩</b><p>원하는 곳 어디에든 부착 가능. 야간 작업자의 안전사고 예방</p></li>
-          <li data-reveal><b>야간안전 퀵밴드</b><p>가장 심플하고 휴대성 좋은 밴드 하나로 야간 활동을 안전하게</p></li>
-          <li data-reveal><b>리플렉티브 셔츠</b><p>타필름보다 휘도와 강도를 강화해 적은 빛으로도 뛰어난 반사 효과</p></li>
+          <li data-reveal><b>스마트<br>텐션 레깅스</b><p>러닝, 라이딩, 등산, 낚시 등 야간 활동에 최적화된 스포츠웨어 레깅스</p></li>
+          <li data-reveal><b>고시인성<br>안전모 스트랩</b><p>초경량·초박형 디스플레이를 스티커처럼 헬멧에 부착.<br>눈부심 없이 가시성 좋은 라이팅</p></li>
+          <li data-reveal><b>고시인성<br>야간안전 스트랩</b><p>원하는 곳 어디에든 부착 가능. 야간 작업자의 안전사고 예방</p></li>
+          <li data-reveal><b>야간안전<br>퀵밴드</b><p>가장 심플하고 휴대성 좋은 밴드 하나로 야간 활동을 안전하게</p></li>
+          <li data-reveal><b>리플렉티브<br>셔츠</b><p>타필름보다 휘도와 강도를 강화해 적은 빛으로도 뛰어난 반사 효과</p></li>
         </ul>
       </div>
     </div>
@@ -637,7 +637,7 @@
   <a href="index.html?type=custom#order" class="btn btn-glow">현장맞춤상담 신청</a>
 </div>
 
-<script src="common.js?v=20261029-7"></script>
+<script src="common.js?v=20261029-8"></script>
 <script>
 (() => {
   const { $, $$, reduce, clamp, progress, onFrame } = G;
