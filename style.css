@@ -22,7 +22,7 @@ section{position:relative}
 .sec{padding:110px 0}
 
 /* ---------- 버튼: 누르는 순간 반응 ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;font-weight:800;font-size:.9375rem;border:0;cursor:pointer;transition:transform .1s ease-out,background-color .2s,box-shadow .3s;-webkit-tap-highlight-color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;font-weight:800;font-size:.9375rem;border:0;transition:transform .1s ease-out,background-color .2s,box-shadow .3s;-webkit-tap-highlight-color:transparent}
 .btn:active{transform:scale(.97)}
 .btn-glow{background:var(--glow);color:#03202a}
 .btn-glow:hover{background:#8ff7ff}
@@ -46,7 +46,7 @@ section{position:relative}
 .nav a.nav-page:hover,.nav a.nav-page.on{background:rgba(95,243,255,.1);color:var(--glow)}
 .nav a.nav-page.on::after{display:none}
 .hd-act{display:flex;align-items:center;gap:8px}
-.menu-btn{width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(5,13,24,.4);cursor:pointer;display:grid;place-content:center;gap:5px;transition:transform .1s}
+.menu-btn{width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(5,13,24,.4);display:grid;place-content:center;gap:5px;transition:transform .1s}
 .menu-btn:active{transform:scale(.94)}
 .menu-btn i{display:block;width:16px;height:1.5px;background:var(--ink);border-radius:2px}
 /* 모바일 메뉴: 버튼에서 펼쳐지는 반투명 시트 (네이티브 popover) */
@@ -56,6 +56,12 @@ section{position:relative}
 .menu a{display:flex;justify-content:space-between;padding:14px 16px;border-radius:12px;font-weight:700;font-size:1rem}
 .menu a:hover{background:rgba(255,255,255,.06)}
 .menu a.nav-page{margin-top:6px;color:var(--glow);background:rgba(95,243,255,.08)}
+/* 네온 커서 (마우스 쓰는 기기에서만). 링크·버튼 위에선 안이 채워진 커서, 글 입력칸은 기본 I자 */
+@media (pointer:fine){
+  html{cursor:url(assets/cursor.svg) 8 6,auto}
+  a,button,summary,label,[popovertarget],.seg input,.agree input{cursor:url(assets/cursor-hover.svg) 8 6,pointer}
+  input:is([type=text],[type=email],[type=tel],:not([type])),textarea{cursor:text}
+}
 [hidden]{display:none!important}
 /* 줄바꿈: br.pc 는 넓은 화면에서만, .nb 는 한 덩어리로 유지 */
 br.pc{display:none}
@@ -167,7 +173,7 @@ h1,h2,h3,.h2{text-wrap:balance}
 .usecase{background:var(--night);overflow:hidden}
 .uc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
 .uc-nav{display:none;gap:8px}
-.uc-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font-size:1.1rem;transition:background-color .2s,transform .1s}
+.uc-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:1.1rem;transition:background-color .2s,transform .1s}
 .uc-nav button:hover{background:rgba(255,255,255,.1)}
 .uc-nav button:active{transform:scale(.94)}
 .uc-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px var(--gut) 8px;scroll-padding:0 var(--gut);scrollbar-width:none;overscroll-behavior-x:contain}
@@ -236,7 +242,7 @@ h1,h2,h3,.h2{text-wrap:balance}
 .paper .summary .note{color:var(--muted)}
 /* 상담 유형: 세그먼트 선택 */
 .seg{display:grid;gap:8px;margin-top:18px}
-.seg label{position:relative;cursor:pointer}
+.seg label{position:relative}
 .seg input{position:absolute;opacity:0;inset:0}
 .seg span{display:block;padding:14px 16px;border-radius:14px;border:1.5px solid var(--paper-line);background:var(--paper);font-weight:800;font-size:.9375rem;transition:border-color .2s,background-color .2s,transform .1s ease-out}
 .seg span small{display:block;font-weight:500;font-size:.8125rem;color:var(--paper-muted);margin-top:2px}
@@ -244,7 +250,7 @@ h1,h2,h3,.h2{text-wrap:balance}
 .seg input:checked+span{border-color:var(--paper-ink);background:#fff;box-shadow:inset 0 0 0 1px var(--paper-ink)}
 .seg input:focus-visible+span{outline:2px solid #1f7fb8;outline-offset:2px}
 .sum-type{margin:10px 0 14px;font-weight:800;font-size:1.0625rem}
-.agree{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.8125rem;color:#c3d3df;line-height:1.5;cursor:pointer}
+.agree{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.8125rem;color:#c3d3df;line-height:1.5}
 .agree input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:var(--glow)}
 @media (min-width:768px){.seg{grid-template-columns:repeat(3,1fr)}}
 
@@ -253,7 +259,7 @@ h1,h2,h3,.h2{text-wrap:balance}
 .faq{background:var(--night)}
 .qa{margin-top:32px;border-top:1px solid var(--line)}
 .qa details{border-bottom:1px solid var(--line);interpolate-size:allow-keywords}
-.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 2px;font-weight:700;font-size:1.0625rem}
+.qa summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 2px;font-weight:700;font-size:1.0625rem}
 .qa summary::-webkit-details-marker{display:none}
 .qa summary i{flex:none;position:relative;width:14px;height:14px}
 .qa summary i::before,.qa summary i::after{content:"";position:absolute;left:0;top:6px;width:14px;height:2px;border-radius:2px;background:var(--glow);transition:transform .35s var(--ease)}
