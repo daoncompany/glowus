@@ -10,7 +10,7 @@
 <meta property="og:image" content="assets/el/hero-arc.webp">
 <meta name="theme-color" content="#050d18">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css?v=20261029-9">
+<link rel="stylesheet" href="style.css?v=20261029-11">
 <style>
 /* 이 페이지 전용. 장(FLD/EL)마다 강조색이 바뀜 */
 #fld{--acc:#5ff3ff;--acc-soft:rgba(95,243,255,.12)}
@@ -36,8 +36,8 @@
 .switch[data-on="el"] i{transform:translateX(100%);background:#62e6a7}
 
 /* 두 제품 한눈에 */
-.pair{display:grid;gap:14px;margin-top:40px}
-.pair a{display:block;padding:28px 24px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(160deg,var(--acc-soft),transparent 60%);transition:transform .4s var(--ease),border-color .3s}
+.pair{display:grid;gap:16px;margin-top:56px}
+.pair a{display:block;padding:36px 32px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(160deg,var(--acc-soft),transparent 60%);transition:transform .4s var(--ease),border-color .3s}
 .pair a:hover{transform:translateY(-4px);border-color:var(--acc)}
 .pair a:active{transform:scale(.985)}
 .pair .tag{font-size:var(--fs-12);font-weight:800;letter-spacing:var(--ls-caps);color:var(--acc)}
@@ -47,14 +47,14 @@
 .pair li{font-size:var(--fs-12);padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:#c3d3df;letter-spacing:var(--ls-12)}
 
 /* 장 머리 */
-.ch-head{display:grid;gap:32px;align-items:center}
+.ch-head{display:grid;gap:40px;align-items:center}
 .ch-title{font-size:var(--fs-96);line-height:.95;font-weight:900;letter-spacing:var(--ls-96);color:var(--acc)}
 .ch-sub{color:var(--muted);font-size:var(--fs-14);letter-spacing:.04em;margin-top:8px}
 .ch-photo{border-radius:28px;overflow:hidden;aspect-ratio:4/5;max-height:640px;background:#0b1522}
 .ch-photo img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.12 - var(--v,0) * .12));transition:transform .2s linear}
 
-.feat4{display:grid;gap:12px;margin-top:40px}
-.feat4 article{padding:24px 22px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.feat4{display:grid;gap:16px;margin-top:56px}
+.feat4 article{padding:32px 28px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
 .feat4 .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--acc-soft);color:var(--acc);font-weight:900}
 .feat4 h3{font-size:var(--fs-18);margin-top:14px;letter-spacing:var(--ls-18)}
 .feat4 p{color:var(--muted);font-size:var(--fs-16);margin-top:4px;letter-spacing:var(--ls-16)}
@@ -69,7 +69,7 @@
 .flow .wire::after{content:"";position:absolute;left:0;width:100%;height:40%;background:linear-gradient(transparent,var(--acc));animation:pulseY 1.6s linear infinite}
 .flow .wire:nth-of-type(4)::after{animation-delay:.8s}
 @keyframes pulseY{from{top:-40%}to{top:100%}}
-.flow-note{margin-top:20px;padding:20px;border-radius:18px;background:#fff;display:grid;place-items:center}
+.flow-note{margin-top:20px;padding:24px;border-radius:18px;background:#fff;display:grid;place-items:center}
 .flow-note img{max-height:220px;width:auto}
 /* 구동 방식: 왼쪽 설명+짧은 표, 오른쪽 흐름 카드+그림 */
 .tbl.compact{margin-top:28px}
@@ -77,22 +77,23 @@
 .tbl.compact .r{grid-template-columns:118px 1fr;padding:10px 18px;font-size:var(--fs-14);letter-spacing:var(--ls-14)}
 .tbl.compact .r dt{font-size:var(--fs-14);letter-spacing:var(--ls-14)}
 /* 2단 블록이 모바일에서 위아래로 쌓일 때 사이 간격 (PC 2단에선 grid gap 이 대신함) */
-.two-col>div+div{margin-top:72px}
+.two-col>div+div{margin-top:96px}
 .flow-sec>.flow-col{margin-top:40px}
 .flow-col .flow{margin-top:0}
 .flow-col .flow-note{margin-top:14px;padding:24px}
 .flow-col .flow-note img{width:100%;max-height:180px;object-fit:contain}
 
-.stats4{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px}
-.stats4 div{padding:20px 16px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.stats4{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.stats4 div{padding:24px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
 .stats4 small{font-size:var(--fs-12);color:var(--muted);font-weight:700;letter-spacing:var(--ls-12)}
 .stats4 b{display:block;font-size:var(--fs-36);font-weight:850;letter-spacing:var(--ls-36);margin-top:6px;color:var(--acc);font-variant-numeric:tabular-nums;line-height:1.2}
 .stats4 b sub{font-size:var(--fs-14);vertical-align:baseline;color:var(--ink);font-weight:700;margin-left:2px;letter-spacing:0}
+@media (max-width:420px){.stats4 b sub{display:block;margin-left:0;margin-top:2px}} /* 아주 좁은 화면: 단위를 숫자 아래로 */
 
 /* 표: 모바일에선 카드처럼 쌓임 */
-.tbl{margin-top:24px;border-radius:20px;border:1px solid var(--line);overflow:hidden}
-.tbl h4{padding:16px 20px;font-size:var(--fs-14);background:rgba(255,255,255,.04);border-bottom:1px solid var(--line);letter-spacing:var(--ls-14)}
-.tbl .r{display:grid;grid-template-columns:110px 1fr;gap:4px 14px;padding:14px 20px;border-top:1px solid var(--line);font-size:var(--fs-16);letter-spacing:var(--ls-16)}
+.tbl{margin-top:32px;border-radius:20px;border:1px solid var(--line);overflow:hidden}
+.tbl h4{padding:18px 24px;font-size:var(--fs-14);background:rgba(255,255,255,.04);border-bottom:1px solid var(--line);letter-spacing:var(--ls-14)}
+.tbl .r{display:grid;grid-template-columns:110px 1fr;gap:4px 14px;padding:18px 24px;border-top:1px solid var(--line);font-size:var(--fs-16);letter-spacing:var(--ls-16)}
 .tbl h4+.r{border-top:0}
 .tbl .r dt{color:var(--muted);font-weight:700;font-size:var(--fs-14);letter-spacing:var(--ls-14)}
 .tbl .r dd b{font-weight:800}
@@ -102,7 +103,7 @@
 .tbl-note b{color:var(--acc)}
 
 /* 사진 갤러리: 손으로 넘김 */
-.gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:32px var(--gut) 8px;scroll-padding:0 var(--gut);scrollbar-width:none;overscroll-behavior-x:contain}
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:48px var(--gut) 8px;scroll-padding:0 var(--gut);scrollbar-width:none;overscroll-behavior-x:contain}
 .gal::-webkit-scrollbar{display:none}
 .gal figure{flex:0 0 76%;max-width:380px;scroll-snap-align:start}
 .gal .ph{border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:#0b1522}
@@ -113,31 +114,35 @@
 .gal figcaption span{color:var(--muted);font-size:var(--fs-14);letter-spacing:var(--ls-14)}
 .gal-hint{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
 
-.cats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
-.cats div{padding:18px 16px;border-radius:18px;border:1px solid var(--line)}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.cats div{padding:24px 20px;border-radius:18px;border:1px solid var(--line)}
 .cats small{font-size:var(--fs-12);letter-spacing:var(--ls-caps);color:var(--acc);font-weight:800}
 .cats b{display:block;margin-top:4px}
 .cats p{color:var(--muted);font-size:var(--fs-14);margin-top:4px;letter-spacing:var(--ls-14)}
 
 .lineup{margin-top:28px;border-top:1px solid var(--line)}
-.lineup li{list-style:none;display:grid;grid-template-columns:8.5em 1fr;gap:4px 16px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.lineup li{list-style:none;display:grid;grid-template-columns:8.5em 1fr;gap:4px 16px;align-items:start;padding:26px 0;border-bottom:1px solid var(--line)}
 .lineup b{color:var(--acc);font-size:var(--fs-16);line-height:1.45;letter-spacing:var(--ls-16)}
 .lineup p{color:var(--muted);font-size:var(--fs-16);letter-spacing:var(--ls-16)}
 
-.fit{display:grid;gap:10px;margin-top:24px}
-.fit div{padding:20px;border-radius:18px;background:var(--acc-soft)}
+.fit{display:grid;gap:16px;margin-top:32px}
+.fit div{padding:24px;border-radius:18px;background:var(--acc-soft)}
 .fit b{display:block}
 .fit p{color:#c3d3df;font-size:var(--fs-14);margin-top:4px;letter-spacing:var(--ls-14)}
 
 /* 친환경(EL) */
-.eco{position:relative;margin-top:80px;border-radius:28px;overflow:hidden;padding:40px 24px 32px;background:linear-gradient(180deg,rgba(5,13,24,.2),rgba(5,13,24,.92) 55%),url(assets/el/city.webp) center top/auto 55% no-repeat,#050d18}
+.eco{position:relative;margin-top:112px;border-radius:28px;overflow:hidden;padding:40px 24px 32px;background:#0b2230;border:1px solid rgba(98,230,167,.18);box-shadow:0 40px 90px -40px rgba(0,0,0,.85)}
+/* 사진은 카드 위쪽에 깔고 아래로 갈수록 투명해져 카드 바탕에 녹아듦 (경계선이 안 보이게) */
+.eco::before{content:"";position:absolute;inset:0 0 auto;height:clamp(18rem,40vw,27rem);background:url(assets/el/city.webp) center 35%/cover no-repeat;filter:brightness(.78);-webkit-mask:linear-gradient(#000 20%,rgba(0,0,0,.6) 50%,transparent 92%);mask:linear-gradient(#000 20%,rgba(0,0,0,.6) 50%,transparent 92%)}
+.eco>*{position:relative}
+.eco .lead{max-width:none}
 .eco .h2{margin-top:120px}
-.eco ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
-.eco li{padding:14px;border-radius:14px;background:rgba(255,255,255,.05);font-size:var(--fs-14);color:var(--muted);letter-spacing:var(--ls-14)}
+.eco ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
+.eco li{padding:18px;border-radius:14px;background:rgba(255,255,255,.05);font-size:var(--fs-14);color:var(--muted);letter-spacing:var(--ls-14)}
 .eco li b{display:block;color:var(--acc);font-size:var(--fs-18);letter-spacing:var(--ls-18)}
 
 /* 개발 과정: 스크롤 따라 선이 채워짐 */
-.proc{position:relative;margin-top:28px;padding-left:28px;list-style:none}
+.proc{position:relative;margin-top:36px;padding-left:28px;list-style:none}
 .proc::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
 .proc::after{content:"";position:absolute;left:5px;top:6px;width:1px;height:calc((100% - 12px) * var(--pp,0));background:var(--acc)}
 .proc li{position:relative;padding:10px 0 18px}
@@ -145,12 +150,12 @@
 .proc li.on::before{background:var(--acc);border-color:var(--acc)}
 .proc small{color:var(--acc);font-weight:800;font-size:var(--fs-12);letter-spacing:var(--ls-caps)}
 .proc b{display:block;font-size:var(--fs-18);letter-spacing:var(--ls-18)}
-.checks{display:grid;gap:8px;margin-top:24px;counter-reset:c;list-style:none}
-.checks li{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:16px 18px;border-radius:16px;border:1px solid var(--line)}
+.checks{display:grid;gap:12px;margin-top:32px;counter-reset:c;list-style:none}
+.checks li{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:20px 22px;border-radius:16px;border:1px solid var(--line)}
 .checks li::before{counter-increment:c;content:"0" counter(c);grid-row:span 2;color:var(--acc);font-weight:800;font-size:var(--fs-14);padding-top:1px;letter-spacing:var(--ls-14)}
 .checks p{color:var(--muted);font-size:var(--fs-14);letter-spacing:var(--ls-14)}
 
-.cost{margin-top:28px;padding:28px 22px;border-radius:24px;background:#fff;color:var(--paper-ink)}
+.cost{margin-top:40px;padding:36px 32px;border-radius:24px;background:#fff;color:var(--paper-ink)}
 .cost .k{font-size:var(--fs-14);color:var(--paper-muted);font-weight:700;letter-spacing:var(--ls-14)}
 .cost .v{font-size:var(--fs-36);font-weight:850;letter-spacing:var(--ls-36);margin-top:4px;line-height:1.2}
 .cost p{color:var(--paper-muted);font-size:var(--fs-14);margin-top:6px;letter-spacing:var(--ls-14)}
@@ -158,7 +163,7 @@
 
 /* 회사 */
 .company{background:var(--deep)}
-.cgrid{display:grid;gap:40px;margin-top:36px}
+.cgrid{display:grid;gap:56px;margin-top:56px}
 .tl{list-style:none;border-left:1px solid var(--line);padding-left:20px}
 .tl li{position:relative;padding:0 0 22px}
 .tl li::before{content:"";position:absolute;left:-24px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--glow)}
@@ -172,7 +177,6 @@
 @media (min-width:768px){
   .pair,.feat4{grid-template-columns:1fr 1fr}
   .stats4{grid-template-columns:repeat(4,1fr)}
-  .cats{grid-template-columns:repeat(4,1fr)}
   .fit{grid-template-columns:1fr 1fr}
   .gal figure{flex-basis:44%}
   .flow{grid-template-columns:1fr 56px 1fr 56px 1fr;align-items:center}
@@ -192,6 +196,7 @@
 }
 @keyframes pulseX{from{left:-40%}to{left:100%}}
 @media (min-width:1024px){
+  .cats{grid-template-columns:repeat(4,1fr)}
   .ch-head{grid-template-columns:6fr 5fr;gap:80px}
   .gal figure{flex-basis:31%}
   .cgrid{grid-template-columns:repeat(3,1fr)}
@@ -290,7 +295,7 @@
       <article data-reveal style="--i:3"><span class="ic">04</span><h3>맞춤형 정보 표현</h3><p>로고, 안전 문구, 방향, 상태 표시를 제품 목적에 맞게 발광 디자인으로 제작합니다.</p></article>
     </div>
 
-    <div class="two-col flow-sec" style="margin-top:110px">
+    <div class="two-col flow-sec" style="margin-top:128px">
       <div>
         <p class="eyebrow" data-reveal>FUNCTION AND POWER FLOW</p>
         <h3 class="h2" data-reveal style="--i:1">주요 기능 및<br>구동 방식</h3>
@@ -317,7 +322,7 @@
       </div>
     </div>
 
-    <p class="eyebrow" style="margin-top:110px" data-reveal>PERFORMANCE AND SPECIFICATIONS</p>
+    <p class="eyebrow" style="margin-top:128px" data-reveal>PERFORMANCE AND SPECIFICATIONS</p>
     <h3 class="h2" data-reveal style="--i:1">FLD 기술 사양</h3>
     <div class="stats4">
       <div data-reveal style="--i:0"><small>발광부 두께</small><b>0.1<sub>mm 미만</sub></b></div>
@@ -343,7 +348,7 @@
     </dl>
     <p class="tbl-note" data-reveal><b>밝기와 수명</b> 구동 전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있으므로,<br class="pc"> 사용 목적에 맞는 구동 조건을 적용해야 합니다.</p>
 
-    <div class="gal-hint" style="margin-top:110px">
+    <div class="gal-hint" style="margin-top:128px">
       <div>
         <p class="eyebrow" data-reveal>APPLICATION</p>
         <h3 class="h2" data-reveal style="--i:1">빛과 정보를 함께 전달하는<br>웨어러블 안전 솔루션</h3>
@@ -369,7 +374,7 @@
       <div class="r"><dt>브랜드 제품</dt><dd><b>의류·가방·프로모션 제품</b></dd><dd><small>로고, 메시지, 발광 그래픽</small></dd></div>
     </dl>
 
-    <div class="two-col" style="margin-top:96px">
+    <div class="two-col" style="margin-top:120px">
       <div>
         <p class="eyebrow" data-reveal>WHEN TO CHOOSE FLD</p>
         <h3 class="h2" data-reveal style="--i:1">FLD가 적합한 경우</h3>
@@ -393,7 +398,7 @@
       </div>
     </div>
 
-    <p class="eyebrow" style="margin-top:110px" data-reveal>CUSTOM DEVELOPMENT</p>
+    <p class="eyebrow" style="margin-top:128px" data-reveal>CUSTOM DEVELOPMENT</p>
     <h3 class="h2" data-reveal style="--i:1">FLD 제작 단가</h3>
     <p class="lead" data-reveal style="--i:2">FLD는 적용 제품의 형태, 발광 면적, 전원과 제어 방식, 보호 마감에 따라<br class="pc"> 설계가 달라지는 주문 제작 제품입니다.<br>구체적인 가격은 적용 사양과 예상 수량을 확인한 후 산정합니다.</p>
     <div class="cost" data-reveal>
@@ -438,7 +443,7 @@
     <div class="eco" data-reveal>
       <p class="eyebrow">ECO FRIENDLY DISPLAY</p>
       <h3 class="h2">빛공해 없는<br>친환경 디스플레이</h3>
-      <p class="lead">과도한 야간조명은 눈부심과 생체리듬 교란, 야간 운전자의 시인성 저하를 일으키고<br class="pc"> 생태계 리듬에도 영향을 줄 수 있습니다.<br>EL&nbsp;Display는 더 많은 빛이 아니라 더 정확한 빛으로,<br class="pc"> 과도한 밝기는 줄이고 시인성은 선명하게 표현합니다.</p>
+      <p class="lead">과도한 야간조명은 눈부심과 생체리듬 교란, 야간 운전자의 시인성 저하를 일으키고 생태계 리듬에도 영향을 줄 수 있습니다.<br>EL&nbsp;Display는 더 많은 빛이 아니라 더 정확한 빛으로, 과도한 밝기는 줄이고 시인성은 선명하게 표현합니다.</p>
       <ul>
         <li><b>&gt; 99.5%</b>균일도 (블랙홀 거의 없음)</li>
         <li><b>면광원</b>필름 타입, 디자인 가능</li>
@@ -449,7 +454,7 @@
       </ul>
     </div>
 
-    <div class="two-col flow-sec" style="margin-top:110px">
+    <div class="two-col flow-sec" style="margin-top:128px">
       <div>
         <p class="eyebrow" data-reveal>FUNCTION AND POWER FLOW</p>
         <h3 class="h2" data-reveal style="--i:1">주요 기능 및<br>구동 방식</h3>
@@ -476,7 +481,7 @@
       </div>
     </div>
 
-    <p class="eyebrow" style="margin-top:110px" data-reveal>PERFORMANCE AND SPECIFICATIONS</p>
+    <p class="eyebrow" style="margin-top:128px" data-reveal>PERFORMANCE AND SPECIFICATIONS</p>
     <h3 class="h2" data-reveal style="--i:1">EL Display 기술 사양</h3>
     <div class="stats4">
       <div data-reveal style="--i:0"><small>최소 곡률반경</small><b><span data-count="6">6</span><sub>mm</sub></b></div>
@@ -505,7 +510,7 @@
     </dl>
     <p class="tbl-note" data-reveal><b>밝기와 수명</b> 구동전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있어,<br class="pc"> 사용 목적에 맞는 구동조건을 적용해야 합니다.</p>
 
-    <div class="gal-hint" style="margin-top:110px">
+    <div class="gal-hint" style="margin-top:128px">
       <div>
         <p class="eyebrow" data-reveal>EL DISPLAY CASES</p>
         <h3 class="h2" data-reveal style="--i:1">빛과 정보를 함께 전달하는<br>능동형 안전·안내 솔루션</h3>
@@ -531,7 +536,7 @@
       <div data-reveal style="--i:3"><small>BRANDING</small><b>제품·브랜드</b><p>로고 · 픽토그램<br>상태 및 정보 표시</p></div>
     </div>
 
-    <div class="two-col" style="margin-top:110px">
+    <div class="two-col" style="margin-top:128px">
       <div>
         <p class="eyebrow" data-reveal>CUSTOM DEVELOPMENT</p>
         <h3 class="h2" data-reveal style="--i:1">맞춤개발 시<br>확인할 핵심 사양</h3>
@@ -641,7 +646,7 @@
   <a href="index.html?type=custom#order" class="btn btn-glow">현장맞춤상담 신청</a>
 </div>
 
-<script src="common.js?v=20261029-9"></script>
+<script src="common.js?v=20261029-11"></script>
 <script>
 (() => {
   const { $, $$, reduce, clamp, progress, onFrame } = G;
