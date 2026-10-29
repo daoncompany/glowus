@@ -185,6 +185,14 @@ h1,h2,h3,.h2{text-wrap:balance}
 .uc-track::-webkit-scrollbar{display:none}
 .uc{flex:0 0 78%;max-width:340px;scroll-snap-align:start;border-radius:22px;overflow:hidden;aspect-ratio:368/485;background:#0b1522;transition:transform .5s var(--ease)}
 .uc img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+/* 더미 카드: 사진 자리(연회색) + 실제 카드와 같은 위치의 글 자리 */
+.uc-dummy{background:#e6eaee;color:#3b4652;display:flex;align-items:flex-end}
+.uc-dummy figcaption{padding:0 9% 9%}
+.uc-dummy .n{font-size:.9375rem;color:#5b6b78}
+.uc-dummy b{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:#1c2732}
+.uc-dummy p{font-size:.875rem;margin-top:8px;color:#5b6b78}
+.uc-dummy i{display:block;width:28px;height:2px;background:#9aa7b2;margin:16px 0 12px}
+.uc-dummy .en{font-size:.875rem;font-weight:800;letter-spacing:.04em;color:#3b4652}
 .uc:hover img{transform:scale(1.04)}
 .uc-dots{display:flex;gap:6px;justify-content:center;margin-top:20px}
 .uc-dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.22);transition:width .4s var(--ease),background-color .3s}
