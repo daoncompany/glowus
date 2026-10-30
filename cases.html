@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>적용사례 | GLOWUS 글로우어스</title>
+<meta name="description" content="FLD · EL Display 주요 적용 분야와 코레일, 한국도로공사 등 프로젝트 적용 사례.">
+<meta property="og:title" content="적용사례 | GLOWUS 글로우어스">
+<meta property="og:image" content="assets/cases/c1-1.webp">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css?v=2">
+<style>
+/* 적용 분야 */
+.areas{display:grid;gap:16px;margin-top:56px}
+.area{position:relative;border-radius:24px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+.area img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.area::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.1) 20%,rgba(0,0,0,.88) 78%)}
+.area:hover img{transform:scale(1.05)}
+.area .in{padding:32px 28px}
+.area h3{font-size:var(--fs-36);letter-spacing:var(--ls-36);line-height:1.05;font-weight:850;color:var(--glow)}
+.area h4{margin-top:14px;font-size:var(--fs-18)}
+.area ul{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.area li{padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:var(--fs-14)}
+.area p{margin-top:16px;color:#d4dfe8}
+
+/* 프로젝트 필터 */
+.filter{display:inline-flex;gap:4px;padding:4px;border-radius:999px;border:1px solid var(--line);margin-top:40px}
+.filter button{border:0;background:none;padding:10px 20px;border-radius:999px;font-weight:800;font-size:var(--fs-14);color:var(--muted);transition:background-color .3s,color .3s}
+.filter button[aria-pressed="true"]{background:var(--glow);color:#02222c}
+
+/* 프로젝트 사례 */
+.pj{display:grid;gap:28px;padding:56px 0;border-top:1px solid var(--line)}
+.pj:first-of-type{margin-top:40px}
+.pj .meta .n{font-size:var(--fs-14);font-weight:800;color:var(--glow)}
+.pj .meta .kind{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);font-size:var(--fs-12);color:#c3d1dd;vertical-align:1px}
+.pj h3{margin-top:12px;font-size:var(--fs-36);letter-spacing:var(--ls-36);line-height:1.25}
+.pj .goal{margin-top:20px;color:#c3d1dd}
+.pj .goal b{display:block;font-size:var(--fs-14);color:var(--muted);margin-bottom:4px}
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pics figure{border-radius:16px;overflow:hidden;background:#0b1522;aspect-ratio:4/3}
+.pics figure.wide{grid-column:1/-1;aspect-ratio:auto}
+.pics img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.pics figure:hover img{transform:scale(1.05)}
+.pj[hidden]{display:none}
+
+@media (min-width:768px){
+  .areas{grid-template-columns:repeat(3,1fr)}
+  .pics{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1080px){
+  .pj{grid-template-columns:4fr 7fr;gap:64px;align-items:start}
+  .pj .meta{position:sticky;top:120px}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap hd-in">
+    <a href="index.html" class="logo" aria-label="GLOWUS 홈"><i></i>GLOWUS</a>
+    <ul class="gnb" aria-label="주요 메뉴">
+      <li><a href="company.html">회사소개</a><div class="sub"><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></div></li>
+      <li><a href="technology.html">기술</a><div class="sub"><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></div></li>
+      <li><a href="cases.html">적용사례</a><div class="sub"><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></div></li>
+      <li><a href="contact.html">협업 · 문의</a><div class="sub"><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></div></li>
+    </ul>
+    <div class="hd-act">
+      <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+      <button type="button" class="menu-btn" popovertarget="mnav" aria-label="메뉴 열기"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<nav id="mnav" popover class="mnav" aria-label="모바일 메뉴">
+  <details><summary>회사소개</summary><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></details>
+  <details><summary>기술</summary><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></details>
+  <details><summary>적용사례</summary><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></details>
+  <details><summary>협업 · 문의</summary><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></details>
+  <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+</nav>
+
+<main>
+<section class="phero">
+  <div class="wrap">
+    <p class="crumb rise">HOME / <b>적용사례</b></p>
+    <h1 class="h1 rise" style="--i:1">작업자부터 도로까지,<br>야간 현장에 빛을 더했습니다</h1>
+    <p class="lead rise" style="--i:2">코레일, 한국도로공사와 공공시설 현장에서 FLD · EL Display를 개발하고 시범 적용한 사례입니다.</p>
+    <nav class="ptabs rise" style="--i:3" aria-label="적용사례 바로가기"><a href="#areas">주요 적용 분야</a><a href="#projects">프로젝트 사례</a></nav>
+  </div>
+</section>
+
+<!-- 적용 분야 -->
+<section class="sec light" id="areas">
+  <div class="wrap">
+    <span class="label" data-reveal>APPLICATIONS</span>
+    <h2 class="h2" data-reveal style="--i:1">FLD · EL Display 주요 적용 분야</h2>
+    <div class="areas">
+      <article class="area" data-reveal style="--i:0">
+        <img src="assets/brand/worker.webp" alt="FLD 발광 띠를 적용한 안전조끼와 안전모를 착용한 작업자" loading="lazy">
+        <div class="in">
+          <h3>WORKWEAR<br>&amp; PPE</h3>
+          <h4>작업복 / 안전장비</h4>
+          <ul><li>안전모 및 헬멧</li><li>안전조끼 및 작업복</li><li>작업자 식별 표시</li><li>현장용 안전밴드</li></ul>
+          <p>위험한 환경에서 작업자의 위치를 더 선명하고 명확하게 전달할 수 있습니다.</p>
+        </div>
+      </article>
+      <article class="area" data-reveal style="--i:1">
+        <img src="assets/cases/c3-3.webp" alt="자전거를 탄 사람의 가방끈에서 빛나는 FLD 안전밴드" loading="lazy">
+        <div class="in">
+          <h3>OUTDOOR<br>&amp; MOBILITY</h3>
+          <h4>러닝 / 라이딩 / 아웃도어</h4>
+          <ul><li>러닝백 및 러닝벨트</li><li>자전거 / 퍼스널 모빌리티</li><li>가방 및 웨어러블 액세서리</li><li>야간 레저 안전용품</li></ul>
+          <p>움직임이 많은 제품에도 적용할 수 있어 야간 활동자의 시인성을 높이는 데 활용됩니다.</p>
+        </div>
+      </article>
+      <article class="area" data-reveal style="--i:2">
+        <img src="assets/cases/c5-2.webp" alt="야간 커브길의 제한속도 50 발광 표지" loading="lazy">
+        <div class="in">
+          <h3>SIGNAGE<br>&amp; FACILITIES</h3>
+          <h4>시설물 / 안전표지</h4>
+          <ul><li>위험구역 안내표지</li><li>비상 유도 표시</li><li>이동형 안전시설물</li><li>브랜드 로고 및 정보 표시</li></ul>
+          <p>빛과 그래픽을 결합하여 정보 전달 기능을 갖춘 발광 구조를 구현합니다.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 프로젝트 사례 -->
+<section class="sec dark" id="projects">
+  <div class="wrap">
+    <span class="label" data-reveal>PROJECT CASE</span>
+    <h2 class="h2" data-reveal style="--i:1">프로젝트 사례</h2>
+    <div class="filter" id="filter" role="group" aria-label="사례 분류" data-reveal style="--i:2">
+      <button type="button" data-kind="all" aria-pressed="true">전체</button>
+      <button type="button" data-kind="fld" aria-pressed="false">FLD</button>
+      <button type="button" data-kind="el" aria-pressed="false">EL Display</button>
+    </div>
+
+    <article class="pj" id="case-01" data-kind="fld">
+      <div class="meta" data-reveal><span class="n">CASE 01</span><span class="kind">FLD</span>
+        <h3>코레일 야간 작업자용<br>안전모 FLD 스트랩 개발</h3>
+        <p class="goal"><b>개발 목표</b>야간 철도 작업자의 위치를 쉽게 파악하고, 작업자 식별 및 안전 정보를 직관적으로 전달할 수 있는 발광 안전모 스트랩 개발</p></div>
+      <div class="pics">
+        <figure data-reveal><img src="assets/cases/c1-1.webp" alt="마네킹에 씌운 안전모 둘레에서 빛나는 FLD 스트랩" loading="lazy"></figure>
+        <figure data-reveal style="--i:1"><img src="assets/cases/c1-2.webp" alt="열차감시원 문구가 적힌 빨간 안전모들에 적용한 FLD 스트랩" loading="lazy"></figure>
+        <figure data-reveal style="--i:2"><img src="assets/cases/c1-3.webp" alt="어둠 속에서 '열차감시원' 글자가 빛나는 안전모" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="pj" id="case-02" data-kind="fld">
+      <div class="meta" data-reveal><span class="n">CASE 02</span><span class="kind">FLD</span>
+        <h3>야간 러닝용<br>FLD 레깅스 개발</h3>
+        <p class="goal"><b>개발 목표</b>얇고 유연한 FLD 발광 그래픽을 레깅스에 적용하여 디자인과 야간 시인성을 함께 구현한 웨어러블 제품 개발</p></div>
+      <div class="pics">
+        <figure data-reveal><img src="assets/cases/c2-1.webp" alt="여러 사람의 레깅스에서 빛나는 발광 그래픽" loading="lazy"></figure>
+        <figure data-reveal style="--i:1"><img src="assets/cases/c2-2.webp" alt="레깅스의 Just Keep Going 발광 문구" loading="lazy"></figure>
+        <figure data-reveal style="--i:2"><img src="assets/cases/c2-3.webp" alt="야간에 FLD 레깅스를 입은 두 사람" loading="lazy"></figure>
+        <figure class="wide" data-reveal><img src="assets/cases/c2-4.webp" alt="레깅스 옆선을 따라 빛나는 발자국 그래픽" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="pj" id="case-03" data-kind="fld">
+      <div class="meta" data-reveal><span class="n">CASE 03</span><span class="kind">FLD</span>
+        <h3>휴대형 FLD<br>야간 안전밴드 개발</h3>
+        <p class="goal"><b>개발 목표</b>신체와 가방 등 다양한 위치에 간편하게 착용하여 야간 활동자의 위치를 쉽게 인식할 수 있도록 한 휴대형 FLD 안전밴드 개발</p></div>
+      <div class="pics">
+        <figure data-reveal><img src="assets/cases/c3-1.webp" alt="어깨에 맨 가방끈에서 빛나는 FLD 안전밴드" loading="lazy"></figure>
+        <figure data-reveal style="--i:1"><img src="assets/cases/c3-2.webp" alt="밤길에 여행가방에 단 FLD 밴드" loading="lazy"></figure>
+        <figure data-reveal style="--i:2"><img src="assets/cases/c3-3.webp" alt="자전거를 타는 사람의 가방끈에서 빛나는 FLD 밴드" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="pj" id="case-04" data-kind="el">
+      <div class="meta" data-reveal><span class="n">CASE 04</span><span class="kind">EL Display</span>
+        <h3>한국도로공사 제설차 홍보용<br>EL Display 개발 및 시범 적용</h3>
+        <p class="goal"><b>개발 목표</b>AI 기반 제설작업을 알리고 도로 이용자에게 관련 정보를 전달하기 위한 제설차 측면 발광 디스플레이 개발</p></div>
+      <div class="pics">
+        <figure class="wide" data-reveal><img src="assets/cases/c4-2.webp" alt="밤에 빛나는 제설차 측면 디스플레이 'AI 말로하는 제설작업'" loading="lazy"></figure>
+        <figure class="wide" data-reveal><img src="assets/cases/c4-1.webp" alt="낮에 본 제설차 측면 디스플레이 '제설작업 보이스 컨트롤러'" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="pj" id="case-05" data-kind="el">
+      <div class="meta" data-reveal><span class="n">CASE 05</span><span class="kind">EL Display</span>
+        <h3>한국도로공사 고속도로 제한속도<br>발광 표지 시범 설치</h3>
+        <p class="goal"><b>개발 목표</b>운전자가 야간에도 제한속도와 안전 정보를 쉽게 인식할 수 있도록 애니메이션 기능을 적용한 고속도로 안전표지를 제작하고, 실제 도로 환경에서 시범 설치 및 적용 가능성을 검토</p></div>
+      <div class="pics">
+        <figure class="wide" data-reveal><img src="assets/cases/c5-1.webp" alt="밤 고속도로 위 제한속도 100 발광 표지들" loading="lazy"></figure>
+        <figure class="wide" data-reveal><img src="assets/cases/c5-2.webp" alt="야간 커브길의 제한속도 50 발광 표지와 화살표 유도표지" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="pj" id="case-06" data-kind="el">
+      <div class="meta" data-reveal><span class="n">CASE 06</span><span class="kind">EL Display</span>
+        <h3>공공시설 · 관광지 야간 경관용<br>EL Display 개발 및 설치</h3>
+        <p class="goal"><b>개발 목표</b>공공시설과 관광지에 안내 정보와 경관 콘텐츠를 효과적으로 전달할 수 있는 면발광 EL Display 개발 및 적용</p></div>
+      <div class="pics">
+        <figure class="wide" data-reveal><img src="assets/cases/c6-1.webp" alt="강변 산책로 난간을 따라 설치된 발광 표지" loading="lazy"></figure>
+        <figure data-reveal><img src="assets/cases/c6-2.webp" alt="2026 여수세계섬박람회 발광 안내판" loading="lazy"></figure>
+        <figure data-reveal style="--i:1"><img src="assets/cases/c6-3.webp" alt="연못 난간의 손씻기 안내 EL 표지" loading="lazy"></figure>
+        <figure data-reveal style="--i:2"><img src="assets/cases/c6-4.webp" alt="공원 기둥에 감싼 발광 안내 표지" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="pj" id="case-07" data-kind="el">
+      <div class="meta" data-reveal><span class="n">CASE 07</span><span class="kind">EL Display</span>
+        <h3>야간 구조물 식별용<br>EL Display 설치 사례</h3>
+        <p class="goal"><b>개발 목표</b>야간 도로 환경에서 구조물의 위치와 진행 방향을 쉽게 식별할 수 있도록 EL Display를 적용한 안전 유도시설 구현</p></div>
+      <div class="pics">
+        <figure class="wide" data-reveal><img src="assets/cases/c7-strip.webp" alt="농로 안전가드, 회전교차로 델리네이터, 진입금지 표지, 태양광 화살표 표지, 커브길 유도표지 모음" loading="lazy"></figure>
+        <figure data-reveal><img src="assets/lib/el-guard.webp" alt="농로에 설치된 발광형 안전가드" loading="lazy"></figure>
+        <figure data-reveal style="--i:1"><img src="assets/lib/el-delineator.webp" alt="회전형 교차로의 발광 델리네이터" loading="lazy"></figure>
+        <figure data-reveal style="--i:2"><img src="assets/lib/el-arrow-solar.webp" alt="태양광으로 충전하는 화살표 발광 유도표지" loading="lazy"></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <span class="label glow" data-reveal>PARTNERSHIP</span>
+    <h2 class="h2" data-reveal style="--i:1">다음 사례의 주인공이<br>되어 주세요</h2>
+    <p class="lead" data-reveal style="--i:2">작업복, 안전모, 아웃도어용품, 안전표지 등 FLD · EL Display가 부착되거나 삽입될 제품을 알려주세요.</p>
+    <div class="acts" data-reveal style="--i:3"><a href="contact.html#inquiry" class="btn btn-glow">적용 문의하기 <span class="arr">→</span></a><a href="contact.html#process" class="btn btn-line">개발 프로세스 보기</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div><a href="index.html" class="logo"><i></i>GLOWUS</a><p class="slogan">LIGHT FOR SAFER NIGHTS</p></div>
+      <nav class="ft-links" aria-label="푸터 메뉴"><a href="company.html">회사소개</a><a href="technology.html">기술</a><a href="cases.html">적용사례</a><a href="contact.html">협업 · 문의</a></nav>
+    </div>
+    <dl>
+      <div><dt>상호</dt><dd>주식회사 글로우어스</dd></div>
+      <div><dt>대표자</dt><dd>유미나</dd></div>
+      <div><dt>사업자등록번호</dt><dd>842-86-02686</dd></div>
+      <div style="white-space:normal"><dt>주소</dt><dd>경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+      <div><dt>통신판매업번호</dt><dd>2023-화성동탄-1630</dd></div>
+      <div><dt>제품 문의</dt><dd><a href="tel:01034610063">010-3461-0063</a></dd></div>
+      <div><dt>이메일</dt><dd><a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+    </dl>
+    <p class="copy">© 2026 ㈜다온닷컴. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a href="tel:01034610063" class="btn btn-line">전화 문의</a>
+  <a href="contact.html#inquiry" class="btn btn-glow">협업 문의하기</a>
+</div>
+
+<script src="js/common.js?v=1"></script>
+<script>
+(() => {
+  const { $, $$ } = G;
+  /* 사례 분류: 전체 / FLD / EL Display */
+  const btns = $$('#filter button'), cases = $$('.pj');
+  btns.forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.kind;
+    btns.forEach(x => x.setAttribute('aria-pressed', x === b));
+    cases.forEach(c => {
+      c.hidden = k !== 'all' && c.dataset.kind !== k;
+      if (!c.hidden) $$('[data-reveal]', c).forEach(el => el.classList.add('in')); // 다시 보일 때 바로 보이게
+    });
+  }));
+})();
+</script>
+</body>
+</html>

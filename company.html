@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>회사소개 | GLOWUS 글로우어스</title>
+<meta name="description" content="주식회사 글로우어스 회사 개요, 연혁, 특허 및 시험·인증, 오시는 길.">
+<meta property="og:title" content="회사소개 | GLOWUS 글로우어스">
+<meta property="og:image" content="assets/brand/el-arc.webp">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css?v=2">
+<style>
+/* 회사 개요 */
+.ov{display:grid;gap:48px;align-items:center}
+.ov .ph{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:620px}
+.ov .ph img{width:100%;height:100%;object-fit:cover}
+.ov-text p{margin-top:18px;color:var(--paper-muted);font-size:var(--fs-18);letter-spacing:var(--ls-18)}
+.ov-text p.strong{color:var(--paper-ink);font-weight:800}
+.info{margin-top:72px;border-top:2px solid var(--paper-ink)}
+.info div{display:grid;grid-template-columns:110px 1fr;gap:4px 20px;padding:20px 4px;border-bottom:1px solid var(--paper-line)}
+.info dt{font-weight:800;font-size:var(--fs-14);color:var(--paper-muted);padding-top:2px}
+.info dd{font-size:var(--fs-16)}
+
+/* 브랜드 문장 띠 */
+.brand{position:relative;padding:160px 0;overflow:hidden;background:var(--black)}
+.brand::before{content:"";position:absolute;inset:0;background:url(assets/brand/ribbon.webp) center/cover no-repeat;opacity:.5;transform:scale(calc(1.1 - var(--v,0) * .1))}
+.brand::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.35) 60%,#000 100%)}
+.brand .wrap{position:relative;z-index:1;text-align:center}
+.brand b{display:block;font-size:var(--fs-96);line-height:.95;letter-spacing:var(--ls-96);font-weight:900}
+.brand p{margin-top:24px;font-size:var(--fs-18);color:#c3d1dd}
+
+/* 연혁 */
+.years{margin-top:72px;display:grid;gap:56px}
+.year{display:grid;gap:20px}
+.year h3{font-size:var(--fs-72);line-height:1;letter-spacing:var(--ls-72);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(95,243,255,.6);transition:color .6s var(--ease)}
+.year.on h3{color:var(--glow)}
+.year ul{border-top:1px solid var(--line)}
+.year li{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.year time{font-weight:800;color:var(--glow);font-variant-numeric:tabular-nums}
+.year p{font-size:var(--fs-18);letter-spacing:var(--ls-18)}
+
+/* 특허·인증 */
+.docs{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:48px var(--gut) 8px;scroll-padding:0 var(--gut);scrollbar-width:none;cursor:grab}
+.docs::-webkit-scrollbar{display:none}
+.doc{flex:0 0 46%;max-width:240px;scroll-snap-align:start;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--paper-line);box-shadow:0 20px 40px -28px rgba(13,27,42,.4);transition:transform .5s var(--ease)}
+.doc:hover{transform:translateY(-6px)}
+.doc img{width:100%;aspect-ratio:7/10;object-fit:cover;object-position:top}
+.iplist{display:grid;gap:16px;margin-top:56px}
+.iplist .card h3{margin-top:0}
+.iplist li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--paper-line)}
+.iplist li:last-child{border:0}
+.iplist li small{color:var(--paper-muted);font-size:var(--fs-14);white-space:nowrap}
+.values{display:grid;gap:12px;margin-top:16px}
+.values div{padding:28px 24px;border-radius:var(--r);background:var(--paper-ink);color:#fff}
+.values b{display:block;font-size:var(--fs-21);letter-spacing:var(--ls-21)}
+.values span{display:block;margin-top:6px;color:#9fb2c3;font-size:var(--fs-14)}
+
+/* 오시는 길 */
+.loc{display:grid;gap:40px;margin-top:56px;align-items:start}
+.loc dl div{padding:22px 0;border-bottom:1px solid var(--line)}
+.loc dt{font-size:var(--fs-14);color:var(--muted);font-weight:700}
+.loc dd{margin-top:6px;font-size:var(--fs-21);letter-spacing:var(--ls-21);font-weight:700}
+.loc .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.mapcard{position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:radial-gradient(60% 60% at 50% 50%,rgba(95,243,255,.16),transparent 70%),repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 40px),repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 40px),#070d14;border:1px solid var(--line);display:grid;place-items:center;text-align:center}
+.mapcard .pin{width:18px;height:18px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 10px rgba(95,243,255,.15),0 0 0 22px rgba(95,243,255,.06);margin:0 auto 18px;animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(95,243,255,.4),0 0 0 0 rgba(95,243,255,.2)}100%{box-shadow:0 0 0 22px rgba(95,243,255,0),0 0 0 44px rgba(95,243,255,0)}}
+.mapcard b{font-size:var(--fs-21)}
+.mapcard span{display:block;margin-top:6px;color:var(--muted);font-size:var(--fs-14)}
+
+@media (min-width:768px){
+  .doc{flex-basis:28%}
+  .iplist{grid-template-columns:1fr 1fr}
+  .values{grid-template-columns:repeat(3,1fr)}
+  .info{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+}
+@media (min-width:1080px){
+  .ov{grid-template-columns:6fr 5fr;gap:96px}
+  .year{grid-template-columns:240px 1fr;gap:48px;align-items:start}
+  .year h3{position:sticky;top:120px}
+  .doc{flex-basis:18%}
+  .loc{grid-template-columns:5fr 6fr;gap:80px}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap hd-in">
+    <a href="index.html" class="logo" aria-label="GLOWUS 홈"><i></i>GLOWUS</a>
+    <ul class="gnb" aria-label="주요 메뉴">
+      <li><a href="company.html">회사소개</a><div class="sub"><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></div></li>
+      <li><a href="technology.html">기술</a><div class="sub"><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></div></li>
+      <li><a href="cases.html">적용사례</a><div class="sub"><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></div></li>
+      <li><a href="contact.html">협업 · 문의</a><div class="sub"><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></div></li>
+    </ul>
+    <div class="hd-act">
+      <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+      <button type="button" class="menu-btn" popovertarget="mnav" aria-label="메뉴 열기"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<nav id="mnav" popover class="mnav" aria-label="모바일 메뉴">
+  <details><summary>회사소개</summary><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></details>
+  <details><summary>기술</summary><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></details>
+  <details><summary>적용사례</summary><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></details>
+  <details><summary>협업 · 문의</summary><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></details>
+  <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+</nav>
+
+<main>
+<section class="phero">
+  <div class="wrap">
+    <p class="crumb rise">HOME / <b>회사소개</b></p>
+    <h1 class="h1 rise" style="--i:1">야간 안전을 위한<br>빛을 만드는 회사</h1>
+    <p class="lead rise" style="--i:2">주식회사 글로우어스는 초박형 플렉서블 디스플레이를 기반으로 작업자 · 도로 · 시설물의 야간 안전 솔루션을 개발합니다.</p>
+    <nav class="ptabs rise" style="--i:3" aria-label="회사소개 바로가기"><a href="#overview">회사 개요</a><a href="#history">연혁</a><a href="#ip">특허 · 인증</a><a href="#location">오시는 길</a></nav>
+  </div>
+</section>
+
+<!-- 회사 개요 -->
+<section class="sec light" id="overview">
+  <div class="wrap">
+    <div class="ov">
+      <div class="ov-text">
+        <span class="label" data-reveal>COMPANY</span>
+        <h2 class="h2" data-reveal style="--i:1">선명한 빛으로,<br>더 안전한 야간 환경을 만듭니다</h2>
+        <p data-reveal style="--i:2">FLD는 얇고 유연한 면광원으로, 설계된 디자인에 따라 그래픽 전체가 고르게 발광합니다.<br class="pc"> 웨어러블 제품부터 시설물과 안전표지까지 다양한 분야에 적용할 수 있습니다.</p>
+        <p data-reveal style="--i:3">GLOWUS는 단순히 빛을 만드는 것을 넘어,<br class="pc"> 야간 환경에서 정보를 더 명확하게 인식할 수 있는 새로운 안전 솔루션을 제안합니다.</p>
+        <p class="strong" data-reveal style="--i:4">필요한 곳에 더 선명한 빛을 더해, 실질적인 안전을 만듭니다.</p>
+      </div>
+      <div class="ph" data-reveal><img src="assets/brand/worker.webp" alt="FLD 발광 띠를 적용한 안전조끼와 안전모를 착용한 야간 작업자" loading="lazy"></div>
+    </div>
+    <dl class="info" data-reveal>
+      <div><dt>회사명</dt><dd>주식회사 글로우어스 (GLOWUS)</dd></div>
+      <div><dt>대표이사</dt><dd>유미나</dd></div>
+      <div><dt>설립</dt><dd>2022년 12월</dd></div>
+      <div><dt>사업자등록번호</dt><dd>842-86-02686</dd></div>
+      <div><dt>사업분야</dt><dd>FLD · EL Display 기반 야간 안전 솔루션 개발 · 제조</dd></div>
+      <div><dt>주요 제품</dt><dd>안전모 스트랩 · 야간 안전밴드 · 발광 의류 · EL 안전표지 · 시설물</dd></div>
+      <div><dt>소재지</dt><dd>경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+      <div><dt>연락처</dt><dd><a href="tel:01034610063">010-3461-0063</a> · <a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="brand" id="brand">
+  <div class="wrap">
+    <b data-reveal>LIGHT FOR<br>SAFER NIGHTS</b>
+    <p data-reveal style="--i:1">초박형 플렉서블 디스플레이 기반 야간 안전 솔루션 전문기업</p>
+  </div>
+</section>
+
+<!-- 연혁 -->
+<section class="sec dark" id="history">
+  <div class="wrap">
+    <span class="label" data-reveal>HISTORY</span>
+    <h2 class="h2" data-reveal style="--i:1">글로우어스가 걸어온 길</h2>
+    <div class="years">
+      <div class="year">
+        <h3>2022</h3>
+        <ul>
+          <li data-reveal><time>07</time><p>경기여성 창업경진대회 우수상 수상</p></li>
+          <li data-reveal><time>07</time><p>경기여성 데모데이 우수상 수상</p></li>
+          <li data-reveal><time>08</time><p>세계여성발명대회 금상 · 은상 수상</p></li>
+          <li data-reveal><time>12</time><p>주식회사 글로우어스 설립</p></li>
+          <li data-reveal><time>12</time><p>한국도로공사 제설차 디스플레이 시범사업 수행</p></li>
+        </ul>
+      </div>
+      <div class="year">
+        <h3>2023</h3>
+        <ul>
+          <li data-reveal><time>01</time><p>현대모비스 협력업체 등록</p></li>
+          <li data-reveal><time>04</time><p>현대모비스 웨어러블 안전제품 프로젝트 수행</p></li>
+          <li data-reveal><time>10</time><p>한국도로공사 고속도로 표지판 시범 설치</p></li>
+        </ul>
+      </div>
+      <div class="year">
+        <h3>2024</h3>
+        <ul>
+          <li data-reveal><time>02</time><p>코레일 야간 작업자용 안전모 스트랩 시범 테스트</p></li>
+          <li data-reveal><time>06</time><p>현대자동차 웨어러블 안전제품 개발 참여</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 특허·인증 -->
+<section class="sec light" id="ip" style="overflow:hidden">
+  <div class="wrap">
+    <span class="label" data-reveal>IP &amp; CERTIFICATION</span>
+    <h2 class="h2" data-reveal style="--i:1">지식재산권 및 시험 · 인증</h2>
+  </div>
+  <div class="docs" data-roll aria-label="특허 · 인증 서류">
+    <a class="doc" href="assets/certs/cert-1.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-1.webp" alt="특허 출원번호통지서" loading="lazy"></a>
+    <a class="doc" href="assets/certs/cert-2.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-2.webp" alt="방송통신기자재등의 적합등록 필증" loading="lazy"></a>
+    <a class="doc" href="assets/certs/cert-3.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-3.webp" alt="KC 안전확인신고 증명서 (한국화학융합시험연구원)" loading="lazy"></a>
+    <a class="doc" href="assets/certs/cert-4.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-4.webp" alt="디자인등록증" loading="lazy"></a>
+    <a class="doc" href="assets/certs/cert-5.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-5.webp" alt="특허결정서" loading="lazy"></a>
+    <a class="doc" href="assets/certs/cert-6.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-6.webp" alt="특허결정서" loading="lazy"></a>
+    <a class="doc" href="assets/certs/cert-7.webp" target="_blank" rel="noopener"><img src="assets/certs/cert-7.webp" alt="특허결정서" loading="lazy"></a>
+  </div>
+  <div class="wrap">
+    <div class="iplist">
+      <div class="card" data-reveal>
+        <h3>등록 특허 · 디자인</h3>
+        <ul style="margin-top:12px">
+          <li><span>다색발광 스마트 의류</span><small>제 10-2673598 호</small></li>
+          <li><span>다용도 안전담요</span><small>제 10-2610285 호</small></li>
+          <li><span>인체 착용용 안전밴드</span><small>제 10-2751224 호</small></li>
+          <li><span>야광안전벨트</span><small>제 30-1204542 호</small></li>
+        </ul>
+      </div>
+      <div class="card" data-reveal style="--i:1">
+        <h3>인버터(배터리) 시험 · 인증</h3>
+        <ul style="margin-top:12px">
+          <li><span>KC 안전확인 신고 인증</span><small>한국화학융합시험연구원</small></li>
+          <li><span>KC 방송통신기자재 적합등록</span><small>국립전파연구원</small></li>
+          <li><span>CE 인증</span><small>Shenzhen LCS</small></li>
+        </ul>
+      </div>
+    </div>
+    <div class="values">
+      <div data-reveal style="--i:0"><b>핵심 기술 보호</b><span>특허 · 디자인 등록으로 기술 보호</span></div>
+      <div data-reveal style="--i:1"><b>기술 신뢰성 검증</b><span>KC · CE 시험 · 인증 완료</span></div>
+      <div data-reveal style="--i:2"><b>사업화 기반 구축</b><span>공공 · 기업 시범 적용과 양산 협의</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 오시는 길 -->
+<section class="sec dark" id="location">
+  <div class="wrap">
+    <span class="label" data-reveal>LOCATION</span>
+    <h2 class="h2" data-reveal style="--i:1">오시는 길</h2>
+    <div class="loc">
+      <div>
+        <dl>
+          <div data-reveal><dt>주소</dt><dd>경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+          <div data-reveal><dt>제품 관련 문의</dt><dd><a href="tel:01034610063">010-3461-0063</a></dd></div>
+          <div data-reveal><dt>이메일</dt><dd><a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+        </dl>
+        <div class="acts" data-reveal>
+          <a class="btn btn-line" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8F%99%ED%83%84%EA%B8%B0%ED%9D%A5%EB%A1%9C%20570-6" target="_blank" rel="noopener">네이버 지도로 보기</a>
+          <a class="btn btn-line" href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8F%99%ED%83%84%EA%B8%B0%ED%9D%A5%EB%A1%9C%20570-6" target="_blank" rel="noopener">카카오맵으로 보기</a>
+        </div>
+      </div>
+      <div class="mapcard" data-reveal><div><span class="pin" aria-hidden="true"></span><b>동탄기흥로 570-6</b><span>경기도 화성시 동탄구 · 907호</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <span class="label glow" data-reveal>PARTNERSHIP</span>
+    <h2 class="h2" data-reveal style="--i:1">제품에 기술을 더하는<br>가장 현실적인 방법</h2>
+    <p class="lead" data-reveal style="--i:2">적용 환경과 필요한 조건을 알려주시면 검토 후 제안드립니다.</p>
+    <div class="acts" data-reveal style="--i:3"><a href="contact.html#inquiry" class="btn btn-glow">협업 문의하기 <span class="arr">→</span></a><a href="technology.html" class="btn btn-line">기술 살펴보기</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div><a href="index.html" class="logo"><i></i>GLOWUS</a><p class="slogan">LIGHT FOR SAFER NIGHTS</p></div>
+      <nav class="ft-links" aria-label="푸터 메뉴"><a href="company.html">회사소개</a><a href="technology.html">기술</a><a href="cases.html">적용사례</a><a href="contact.html">협업 · 문의</a></nav>
+    </div>
+    <dl>
+      <div><dt>상호</dt><dd>주식회사 글로우어스</dd></div>
+      <div><dt>대표자</dt><dd>유미나</dd></div>
+      <div><dt>사업자등록번호</dt><dd>842-86-02686</dd></div>
+      <div style="white-space:normal"><dt>주소</dt><dd>경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+      <div><dt>통신판매업번호</dt><dd>2023-화성동탄-1630</dd></div>
+      <div><dt>제품 문의</dt><dd><a href="tel:01034610063">010-3461-0063</a></dd></div>
+      <div><dt>이메일</dt><dd><a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+    </dl>
+    <p class="copy">© 2026 ㈜다온닷컴. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a href="tel:01034610063" class="btn btn-line">전화 문의</a>
+  <a href="contact.html#inquiry" class="btn btn-glow">협업 문의하기</a>
+</div>
+
+<script src="js/common.js?v=1"></script>
+<script>
+(() => {
+  const { $, $$, progress, onFrame } = G;
+  /* 브랜드 띠 배경이 지나가며 살짝 다가옴 */
+  const brand = $('#brand');
+  onFrame(() => brand.style.setProperty('--v', progress(brand).toFixed(3)));
+  /* 연혁: 화면 중앙을 지난 해는 숫자가 빛남 */
+  const years = $$('.year');
+  onFrame(() => years.forEach(y => y.classList.toggle('on', y.getBoundingClientRect().top < innerHeight * .55)));
+})();
+</script>
+</body>
+</html>

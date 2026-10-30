@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>기술 | GLOWUS 글로우어스</title>
+<meta name="description" content="글로우어스의 핵심 기술: 초박형 플렉서블 FLD와 면발광 EL Display의 구조, 특징, 사양.">
+<meta property="og:title" content="기술 | GLOWUS 글로우어스">
+<meta property="og:image" content="assets/tech/fld-diagram.webp">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css?v=2">
+<style>
+/* 점광원 vs 면발광 체험 */
+.lab{display:grid;gap:48px;align-items:center;margin-top:56px}
+.demo{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto;border-radius:28px;background:#05090f;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.demo svg{width:72%;height:auto;overflow:visible}
+.demo .dots circle{fill:#bff;transition:opacity .6s var(--ease),r .6s var(--ease)}
+.demo .face{fill:var(--glow);opacity:0;transition:opacity .7s var(--ease)}
+.demo .halo{fill:var(--glow);opacity:0;filter:blur(22px);transition:opacity .9s var(--ease)}
+.demo .outline{fill:none;stroke:rgba(255,255,255,.16);stroke-width:1.5}
+.demo[data-mode="surface"] .face{opacity:1}
+.demo[data-mode="surface"] .halo{opacity:.55}
+.demo[data-mode="surface"] .dots circle{opacity:0}
+.demo .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:var(--fs-14);color:var(--muted)}
+.seg2{display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:var(--paper-2);position:relative;margin-top:32px}
+.seg2 button{position:relative;z-index:1;border:0;background:none;padding:12px 22px;font-weight:800;font-size:var(--fs-14);color:var(--paper-muted);transition:color .3s}
+.seg2 button[aria-pressed="true"]{color:#fff}
+.seg2 i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--paper-ink);transition:transform .45s var(--ease)}
+.seg2[data-mode="surface"] i{transform:translateX(100%)}
+.lab .points{margin-top:32px;display:grid;gap:12px}
+.lab .points div{padding:22px 24px;border-radius:var(--r);background:#fff;border:1px solid var(--paper-line)}
+.lab .points b{display:block;font-size:var(--fs-18)}
+.lab .points span{display:block;margin-top:4px;color:var(--paper-muted)}
+
+/* 기술 상세 (FLD / EL 공통) */
+.td{display:grid;gap:48px;margin-top:56px;align-items:start}
+.td .fig{border-radius:24px;background:#fff;padding:28px;display:grid;place-items:center}
+.td .fig img{width:100%;height:auto}
+.td .name small{font-size:var(--fs-18);color:var(--muted)}
+.td .name b{display:block;font-size:var(--fs-96);line-height:.95;letter-spacing:var(--ls-96);font-weight:900;color:var(--glow);margin-top:8px}
+.td h3{font-size:var(--fs-36);letter-spacing:var(--ls-36);line-height:1.25;margin-top:32px}
+.td p{color:#c3d1dd;margin-top:16px;font-size:var(--fs-18);letter-spacing:var(--ls-18)}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.feats div{padding:22px 20px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.feats b{display:block;font-size:var(--fs-14);letter-spacing:.06em;color:var(--glow);font-weight:900}
+.feats span{display:block;margin-top:6px;color:#c3d1dd}
+
+/* 전원 흐름: 빛 알갱이가 선을 따라 흐름 */
+.flow{display:grid;margin-top:40px}
+.flow .node{padding:18px 20px;border-radius:16px;background:#0b1522;border:1px solid var(--line);text-align:center}
+.flow .node b{display:block}
+.flow .node small{color:var(--muted);font-size:var(--fs-14)}
+.flow .node:last-child{border-color:var(--glow);background:linear-gradient(180deg,rgba(95,243,255,.12),#0b1522)}
+.flow .wire{position:relative;height:32px;width:2px;margin:0 auto;background:var(--line);overflow:hidden}
+.flow .wire::after{content:"";position:absolute;left:0;width:100%;height:40%;background:linear-gradient(transparent,var(--glow));animation:pulseY 1.6s linear infinite}
+@keyframes pulseY{from{top:-40%}to{top:100%}}
+@keyframes pulseX{from{left:-40%}to{left:100%}}
+
+.spec{margin-top:40px;border-top:1px solid rgba(255,255,255,.3)}
+.spec div{display:grid;grid-template-columns:120px 1fr;gap:4px 16px;padding:16px 4px;border-bottom:1px solid var(--line)}
+.spec dt{color:var(--muted);font-size:var(--fs-14);font-weight:700;padding-top:2px}
+.spec dd b{font-weight:800}
+.spec dd small{display:block;color:var(--muted);font-size:var(--fs-14);margin-top:2px}
+.spec-note{margin-top:16px;font-size:var(--fs-14);color:var(--muted)}
+.spec-note b{color:var(--glow)}
+
+/* 적용 가치 + 선택 가이드 */
+.big3{display:grid;gap:12px;margin-top:56px}
+.big3 div{padding:36px 28px;border-radius:24px;background:var(--paper-ink);color:#fff}
+.big3 b{display:block;font-size:var(--fs-48);letter-spacing:var(--ls-48);line-height:1;font-weight:900}
+.big3 strong{display:block;margin-top:20px;font-size:var(--fs-18)}
+.big3 span{display:block;margin-top:4px;color:#9fb2c3}
+.guide{margin-top:72px;border-radius:24px;overflow:hidden;border:1px solid var(--paper-line);background:#fff}
+.guide .row{display:grid;grid-template-columns:96px 1fr 1fr;border-top:1px solid var(--paper-line)}
+.guide .row:first-child{border-top:0;background:var(--paper-ink);color:#fff}
+.guide .row>*{padding:16px 18px;font-size:var(--fs-14)}
+.guide .row>:first-child{font-weight:800;color:var(--paper-muted)}
+.guide .row:first-child>*{font-size:var(--fs-16);font-weight:800;color:#fff}
+.guide .row:first-child>:nth-child(2),.guide .row:first-child>:nth-child(3){color:var(--glow)}
+
+@media (min-width:768px){
+  .feats{grid-template-columns:repeat(4,1fr)}
+  .flow{grid-template-columns:1fr 48px 1fr 48px 1fr;align-items:center}
+  .flow .wire{height:2px;width:100%}
+  .flow .wire::after{width:40%;height:100%;top:0;background:linear-gradient(90deg,transparent,var(--glow));animation-name:pulseX}
+  .big3{grid-template-columns:repeat(3,1fr)}
+  .guide .row{grid-template-columns:160px 1fr 1fr}
+  .guide .row>*{font-size:var(--fs-16);padding:18px 24px}
+}
+@media (min-width:1080px){
+  .lab{grid-template-columns:1fr 1fr;gap:96px}
+  .td{grid-template-columns:5fr 6fr;gap:80px}
+  .td .fig{position:sticky;top:120px}
+  .td.rev .fig{order:2}
+}
+@media (prefers-reduced-motion:reduce){.flow .wire::after{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap hd-in">
+    <a href="index.html" class="logo" aria-label="GLOWUS 홈"><i></i>GLOWUS</a>
+    <ul class="gnb" aria-label="주요 메뉴">
+      <li><a href="company.html">회사소개</a><div class="sub"><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></div></li>
+      <li><a href="technology.html">기술</a><div class="sub"><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></div></li>
+      <li><a href="cases.html">적용사례</a><div class="sub"><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></div></li>
+      <li><a href="contact.html">협업 · 문의</a><div class="sub"><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></div></li>
+    </ul>
+    <div class="hd-act">
+      <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+      <button type="button" class="menu-btn" popovertarget="mnav" aria-label="메뉴 열기"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<nav id="mnav" popover class="mnav" aria-label="모바일 메뉴">
+  <details><summary>회사소개</summary><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></details>
+  <details><summary>기술</summary><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></details>
+  <details><summary>적용사례</summary><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></details>
+  <details><summary>협업 · 문의</summary><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></details>
+  <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+</nav>
+
+<main>
+<section class="phero">
+  <div class="wrap">
+    <p class="crumb rise">HOME / <b>기술</b></p>
+    <h1 class="h1 rise" style="--i:1">점이 아닌 면으로,<br>빛과 정보를 함께 전달합니다</h1>
+    <p class="lead rise" style="--i:2">EL 면발광 기술을 기반으로, 웨어러블에는 초박형 FLD를, 시설물과 안전표지에는 EL Display를 설계합니다.</p>
+    <nav class="ptabs rise" style="--i:3" aria-label="기술 바로가기"><a href="#core">핵심 기술</a><a href="#fld">FLD</a><a href="#el">EL Display</a><a href="#value">적용 가치</a></nav>
+  </div>
+</section>
+
+<!-- 핵심 기술: 점광원 vs 면발광 체험 -->
+<section class="sec light" id="core">
+  <div class="wrap">
+    <span class="label" data-reveal>CORE TECHNOLOGY</span>
+    <h2 class="h2" data-reveal style="--i:1">글로우어스의 세 가지 핵심 기술</h2>
+    <div class="lab">
+      <div>
+        <div class="demo" id="demo" data-mode="point" data-reveal>
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="arrowClip"><path d="M30 80h80V45l60 55-60 55v-35H30z"/></clipPath></defs>
+            <path class="halo" d="M30 80h80V45l60 55-60 55v-35H30z"/>
+            <g class="dots" clip-path="url(#arrowClip)" id="dots"></g>
+            <path class="face" d="M30 80h80V45l60 55-60 55v-35H30z"/>
+            <path class="outline" d="M30 80h80V45l60 55-60 55v-35H30z"/>
+          </svg>
+          <p class="cap" id="demoCap">LED 점광원 — 빛이 점으로 끊겨 보입니다</p>
+        </div>
+        <div style="text-align:center">
+          <div class="seg2" id="seg2" data-mode="point" role="group" aria-label="발광 방식 비교">
+            <i aria-hidden="true"></i>
+            <button type="button" data-mode="point" aria-pressed="true">LED 점광원</button>
+            <button type="button" data-mode="surface" aria-pressed="false">GLOWUS 면발광</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="lead" style="margin-top:0" data-reveal>LED와 같은 점광원은 면 전체를 고르게 밝히려면 확산 구조가 더 필요합니다. 글로우어스의 디스플레이는 발광면 전체가 고르게 빛나, 문자와 그래픽을 야간에도 그대로 보여줍니다.</p>
+        <div class="points">
+          <div data-reveal style="--i:0"><b>얇고 유연한 발광 구조</b><span>웨어러블 제품, 곡면과 움직임이 있는 제품에도 적용</span></div>
+          <div data-reveal style="--i:1"><b>선명하고 균일한 면발광</b><span>발광면 전체가 고르게 빛나 위치와 정보를 명확하게 전달</span></div>
+          <div data-reveal style="--i:2"><b>목적에 맞는 맞춤 설계</b><span>로고 · 문구 · 패턴, 크기 · 발광 형태 · 전원 · 제어 조건 협의 개발</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLD -->
+<section class="sec dark" id="fld">
+  <div class="wrap">
+    <span class="label" data-reveal>ULTRA-THIN DISPLAY</span>
+    <div class="td">
+      <div class="fig" data-reveal><img src="assets/tech/fld-diagram.webp" alt="FLD 구조도: 인쇄층·전극층·발광층·전극층·보호층을 겹치고 인버터에 연결, 인쇄층 0.1mm 이내" loading="lazy"></div>
+      <div>
+        <div class="name" data-reveal><small>Flexible Luminescence Display</small><b>FLD</b></div>
+        <h3 data-reveal>얇고 유연한 소재 위에<br>빛과 정보를 구현합니다</h3>
+        <p data-reveal>FLD는 EL 면발광 기술을 기반으로 초박형 · 유연 구조로 확장한 발광 디스플레이입니다.<br class="pc"> 전극층과 발광층, 보호층을 얇게 적층하고 그 위에 그래픽을 인쇄하여 문자, 로고, 패턴 등 원하는 형태를 균일하게 발광시킬 수 있습니다.</p>
+        <p data-reveal>얇고 가벼우며 유연한 구조로 제작이 가능하여 작업복, 안전모, 가방과 같은 웨어러블 제품에 적합합니다.</p>
+        <div class="feats">
+          <div data-reveal style="--i:0"><b>ULTRA-THIN</b><span>인쇄층 기준 0.1mm 이내의 얇은 구조</span></div>
+          <div data-reveal style="--i:1"><b>FLEXIBLE</b><span>곡면과 움직임이 있는 제품에도 적용</span></div>
+          <div data-reveal style="--i:2"><b>SURFACE LIGHTING</b><span>그래픽 전체가 고르게 빛나는 면발광</span></div>
+          <div data-reveal style="--i:3"><b>CUSTOM DESIGN</b><span>문자 · 로고 · 패턴을 목적에 맞게</span></div>
+        </div>
+        <div class="flow" data-reveal>
+          <div class="node"><b>DC 3.7V</b><small>인버터 내장 배터리</small></div>
+          <span class="wire" aria-hidden="true"></span>
+          <div class="node"><b>FLD INVERTER</b><small>DC → AC 변환</small></div>
+          <span class="wire" aria-hidden="true"></span>
+          <div class="node"><b>FLD</b><small>균일한 면발광</small></div>
+        </div>
+        <dl class="spec" data-reveal>
+          <div><dt>발광 기술</dt><dd><b>EL 기반 면발광</b><small>설계된 발광 영역에서 균일하게 발광</small></dd></div>
+          <div><dt>발광부 두께</dt><dd><b>0.1mm 미만</b><small>보호마감 포함 최소 두께</small></dd></div>
+          <div><dt>시스템 입력전압</dt><dd><b>DC 3.7V</b><small>표준 배터리 3.7V / 450mAh (휴대형 개발 모듈 기준)</small></dd></div>
+          <div><dt>휘도</dt><dd><b>60–200 cd/㎡</b><small>구동 조건과 마감에 따라 달라짐</small></dd></div>
+          <div><dt>동작 온도</dt><dd><b>–20~40℃</b><small>완제품의 적용 환경에 따라 별도 확인 필요</small></dd></div>
+          <div><dt>발광 방식</dt><dd><b>상시 · 점멸 · 순차</b><small>인버터와 컨트롤러 구성에 따라 달라짐</small></dd></div>
+          <div><dt>예상 수명</dt><dd><b>8,000~12,000 h</b><small>발광 방식 및 환경에 따라 달라짐</small></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL Display -->
+<section class="sec black" id="el">
+  <div class="wrap">
+    <span class="label" data-reveal>SURFACE-LIGHTING DISPLAY</span>
+    <div class="td rev">
+      <div class="fig" data-reveal><img src="assets/tech/el-diagram.webp" alt="EL Display 적층 구조와 비상구 픽토그램이 고르게 빛나는 패널, 인버터 연결" loading="lazy"></div>
+      <div>
+        <div class="name" data-reveal><small>Electroluminescent Display</small><b>EL Display</b></div>
+        <h3 data-reveal>전기를 가하면<br>발광층 자체가 고르게 빛납니다</h3>
+        <p data-reveal>EL Display는 전극 사이의 발광층에 전기장을 형성하여 패널 자체가 빛을 내는 면발광 디스플레이입니다.<br class="pc"> 별도의 백라이트 없이 발광면 전체가 균일하게 빛나기 때문에 문자, 로고, 픽토그램과 같은 정보를 선명하게 표현할 수 있습니다.</p>
+        <p data-reveal>얇고 가벼우며 발열 부담이 적어 안전표지, 시설물, 광고 · 인테리어, 제품 표시부 등 다양한 분야에 적용할 수 있습니다.</p>
+        <div class="feats">
+          <div data-reveal style="--i:0"><b>SURFACE LIGHTING</b><span>패널 전체가 고르게 빛나는 면발광</span></div>
+          <div data-reveal style="--i:1"><b>SOFT LIGHT</b><span>눈부심이 적고 부드럽게 정보 전달</span></div>
+          <div data-reveal style="--i:2"><b>SLIM &amp; LIGHTWEIGHT</b><span>설치와 적용에 유리한 얇고 가벼운 구조</span></div>
+          <div data-reveal style="--i:3"><b>CUSTOM GRAPHICS</b><span>문자 · 로고 · 픽토그램 그래픽 구현</span></div>
+        </div>
+        <div class="flow" data-reveal>
+          <div class="node"><b>DC 12V</b><small>배터리 / 전원</small></div>
+          <span class="wire" aria-hidden="true"></span>
+          <div class="node"><b>INVERTER</b><small>AC 70–120V · 500–800Hz</small></div>
+          <span class="wire" aria-hidden="true"></span>
+          <div class="node"><b>EL DISPLAY</b><small>발광층 면발광</small></div>
+        </div>
+        <dl class="spec" data-reveal>
+          <div><dt>기본 소재</dt><dd><b>PET 125㎛</b><small>ITO 필름</small></dd></div>
+          <div><dt>시스템 입력전압</dt><dd><b>DC 12V</b><small>배터리 또는 외부 전원에서 인버터로 공급</small></dd></div>
+          <div><dt>인버터 출력</dt><dd><b>AC 70–120V · 500–800Hz</b><small>EL 시트 작동전압 AC 60–130Vrms</small></dd></div>
+          <div><dt>최소 곡률반경</dt><dd><b>6mm</b><small>제품 구조와 마감에 따라 달라질 수 있음</small></dd></div>
+          <div><dt>휘도</dt><dd><b>60–200 cd/㎡</b><small>권장 운전 범위 80–100 cd/㎡ · 허용범위 ±15%</small></dd></div>
+          <div><dt>동작 온도</dt><dd><b>–20~40℃</b><small>실외 적용 시 UV 차단 필름 부착</small></dd></div>
+          <div><dt>예상 수명</dt><dd><b>8,000–12,000 시간</b><small>허용범위 ±15%, 사용조건에 따라 달라짐</small></dd></div>
+        </dl>
+        <p class="spec-note" data-reveal><b>밝기와 수명</b> 구동전압과 주파수가 높아질수록 휘도는 증가하지만 발광 수명은 짧아질 수 있어, 사용 목적에 맞는 구동조건을 적용합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 적용 가치 -->
+<section class="sec light" id="value">
+  <div class="wrap">
+    <span class="label" data-reveal>VALUE</span>
+    <h2 class="h2" data-reveal style="--i:1">발광 기술의 적용 가치</h2>
+    <div class="big3">
+      <div data-reveal style="--i:0"><b>Ultra-thin</b><strong>초박형 발광부</strong><span>유연한 제품 적용에 유리</span></div>
+      <div data-reveal style="--i:1"><b>FLEXIBLE</b><strong>다양한 형태 구현</strong><span>문자 / 로고 / 패턴 디자인</span></div>
+      <div data-reveal style="--i:2"><b>CUSTOM</b><strong>맞춤 개발</strong><span>환경과 용도에 따른 설계</span></div>
+    </div>
+    <div class="guide" data-reveal>
+      <div class="row"><span>구분</span><span>FLD</span><span>EL Display</span></div>
+      <div class="row"><span>잘 맞는 곳</span><span>작업복 · 안전모 · 가방 · 레저용품 등 웨어러블</span><span>안전표지 · 시설물 · 차량 · 광고 · 인테리어</span></div>
+      <div class="row"><span>구조</span><span>인쇄층 기준 0.1mm 이내 초박형 · 유연</span><span>PET 125㎛ 필름, 최소 곡률반경 6mm</span></div>
+      <div class="row"><span>전원</span><span>DC 3.7V 휴대형 배터리</span><span>DC 12V 배터리 · 외부 전원 · 솔라</span></div>
+      <div class="row"><span>표현</span><span>그래픽 인쇄 · 상시 / 점멸 / 순차</span><span>문자 · 픽토그램 · 채널별 순차 발광</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <span class="label glow" data-reveal>PARTNERSHIP</span>
+    <h2 class="h2" data-reveal style="--i:1">어떤 디스플레이가 맞을지<br>함께 검토해 드립니다</h2>
+    <p class="lead" data-reveal style="--i:2">적용 제품, 크기, 발광 형태, 전원 방식과 사용 환경을 알려주시면 적용 가능성을 빠르게 검토합니다.</p>
+    <div class="acts" data-reveal style="--i:3"><a href="contact.html#inquiry" class="btn btn-glow">기술 적용 문의 <span class="arr">→</span></a><a href="cases.html" class="btn btn-line">적용사례 보기</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div><a href="index.html" class="logo"><i></i>GLOWUS</a><p class="slogan">LIGHT FOR SAFER NIGHTS</p></div>
+      <nav class="ft-links" aria-label="푸터 메뉴"><a href="company.html">회사소개</a><a href="technology.html">기술</a><a href="cases.html">적용사례</a><a href="contact.html">협업 · 문의</a></nav>
+    </div>
+    <dl>
+      <div><dt>상호</dt><dd>주식회사 글로우어스</dd></div>
+      <div><dt>대표자</dt><dd>유미나</dd></div>
+      <div><dt>사업자등록번호</dt><dd>842-86-02686</dd></div>
+      <div style="white-space:normal"><dt>주소</dt><dd>경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+      <div><dt>통신판매업번호</dt><dd>2023-화성동탄-1630</dd></div>
+      <div><dt>제품 문의</dt><dd><a href="tel:01034610063">010-3461-0063</a></dd></div>
+      <div><dt>이메일</dt><dd><a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+    </dl>
+    <p class="copy">© 2026 ㈜다온닷컴. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a href="tel:01034610063" class="btn btn-line">전화 문의</a>
+  <a href="contact.html#inquiry" class="btn btn-glow">협업 문의하기</a>
+</div>
+
+<script src="js/common.js?v=1"></script>
+<script>
+(() => {
+  const { $, $$ } = G;
+  /* 점광원 vs 면발광: 화살표 안을 LED 점으로 채우고, 버튼으로 면발광과 비교 */
+  const ns = 'http://www.w3.org/2000/svg', g = $('#dots');
+  for (let y = 46; y <= 156; y += 14) for (let x = 32; x <= 170; x += 14) {
+    const c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 3.2);
+    g.append(c);
+  }
+  const demo = $('#demo'), seg = $('#seg2'), cap = $('#demoCap');
+  const caps = { point: 'LED 점광원 — 빛이 점으로 끊겨 보입니다', surface: 'GLOWUS 면발광 — 그래픽 전체가 고르게 빛납니다' };
+  const set = m => {
+    demo.dataset.mode = seg.dataset.mode = m;
+    $$('button', seg).forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+    cap.textContent = caps[m];
+  };
+  $$('button', seg).forEach(b => b.addEventListener('click', () => set(b.dataset.mode)));
+  // 처음 보일 때 한 번 점광원 → 면발광으로 바뀌어 차이를 보여줌
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); setTimeout(() => set('surface'), 1200); } }, { threshold: .6 }).observe(demo);
+})();
+</script>
+</body>
+</html>

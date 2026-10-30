@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>협업 · 문의 | GLOWUS 글로우어스</title>
+<meta name="description" content="FLD · EL Display 공동개발 · 맞춤 제작 협업 방식과 개발 프로세스, 문의하기.">
+<meta property="og:title" content="협업 · 문의 | GLOWUS 글로우어스">
+<meta property="og:image" content="assets/brand/el-arc.webp">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css?v=2">
+<style>
+/* 협업 방식: 세 가지 질문 */
+.qs{display:grid;gap:16px;margin-top:56px}
+.q{padding:36px 30px;border-radius:24px;background:#fff;border:1px solid var(--paper-line)}
+.q small{font-size:var(--fs-14);font-weight:900;letter-spacing:.06em;color:var(--blue)}
+.q h3{margin-top:18px;font-size:var(--fs-h3);letter-spacing:var(--ls-24)}
+.q p{margin-top:10px;color:var(--paper-muted)}
+
+/* 개발 프로세스: 스크롤 따라 선이 이어지며 단계 점등 */
+.steps{position:relative;display:grid;gap:0;margin-top:64px;padding-left:36px}
+.steps::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.steps::after{content:"";position:absolute;left:8px;top:8px;width:1px;height:calc((100% - 16px) * var(--sp,0));background:var(--glow)}
+.step{position:relative;padding:0 0 48px}
+.step::before{content:"";position:absolute;left:-34px;top:12px;width:13px;height:13px;border-radius:50%;background:var(--black);border:1.5px solid rgba(255,255,255,.35);transition:.45s var(--ease)}
+.step.on::before{background:var(--glow);border-color:var(--glow);box-shadow:0 0 14px var(--glow)}
+.step .num{font-size:var(--fs-48);line-height:1;font-weight:900;letter-spacing:var(--ls-48);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.4);transition:color .5s var(--ease)}
+.step.on .num{color:#fff;-webkit-text-stroke:0}
+.step h3{margin-top:12px;font-size:var(--fs-21);letter-spacing:.06em;font-weight:900;color:var(--glow)}
+.step h4{margin-top:10px;font-size:var(--fs-18)}
+.step p{margin-top:6px;color:var(--muted)}
+.road{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:24px;padding:24px 26px;border-radius:20px;border:1px solid var(--line);font-weight:800}
+.road i{font-style:normal;color:var(--glow)}
+.price{display:grid;gap:12px;margin-top:16px}
+.price div{padding:26px 24px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.price small{font-size:var(--fs-14);color:var(--muted);font-weight:700}
+.price b{display:block;margin-top:6px;font-size:var(--fs-24);letter-spacing:var(--ls-24)}
+.price span{display:block;margin-top:6px;font-size:var(--fs-14);color:var(--muted)}
+
+/* 문의 폼 */
+.inq{display:grid;gap:40px;margin-top:56px;align-items:start}
+.form{display:grid;gap:20px;padding:32px 28px;border-radius:24px;background:#fff;border:1px solid var(--paper-line)}
+.f label,.f .lbl{display:block;font-size:var(--fs-14);font-weight:800;margin-bottom:8px}
+.req{color:#d33}
+.f input,.f select,.f textarea{width:100%;min-height:52px;padding:12px 16px;border-radius:12px;border:1px solid var(--paper-line);background:var(--paper);font-size:var(--fs-16);transition:border-color .2s,box-shadow .2s,background-color .2s}
+.f textarea{min-height:140px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(18,78,120,.12)}
+.f input:user-invalid,.f textarea:user-invalid{border-color:#d33}
+.two{display:grid;gap:20px}
+.kinds{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kinds label{position:relative;margin:0}
+.kinds input{position:absolute;opacity:0;inset:0;min-height:0}
+.kinds span{display:block;padding:14px 12px;border-radius:12px;border:1.5px solid var(--paper-line);background:var(--paper);text-align:center;font-size:var(--fs-14);font-weight:800;transition:border-color .2s,background-color .2s,color .2s,transform .1s ease-out}
+.kinds label:active span{transform:scale(.98)}
+.kinds input:checked+span{border-color:var(--paper-ink);background:var(--paper-ink);color:#fff}
+.kinds input:focus-visible+span{outline:2px solid var(--blue);outline-offset:2px}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:var(--fs-14);color:var(--paper-muted);line-height:1.55}
+.agree input{flex:none;width:18px;height:18px;margin-top:2px;accent-color:var(--blue)}
+.form .btn{width:100%}
+.status{min-height:1.5em;font-size:var(--fs-14);color:var(--blue);font-weight:700}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.side{display:grid;gap:16px}
+.side .card h3{margin-top:0}
+.side dl div{padding:14px 0;border-bottom:1px solid var(--paper-line)}
+.side dl div:last-child{border:0}
+.side dt{font-size:var(--fs-14);color:var(--paper-muted);font-weight:700}
+.side dd{margin-top:4px;font-size:var(--fs-18);font-weight:800}
+.side ul{display:grid;gap:8px;margin-top:14px}
+.side li{position:relative;padding-left:16px;color:var(--paper-muted)}
+.side li::before{content:"";position:absolute;left:2px;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+
+@media (min-width:768px){
+  .qs{grid-template-columns:repeat(3,1fr)}
+  .two{grid-template-columns:1fr 1fr}
+  .kinds{grid-template-columns:repeat(4,1fr)}
+  .price{grid-template-columns:1fr 1fr}
+  .form{padding:40px}
+}
+@media (min-width:1080px){
+  .steps{grid-template-columns:repeat(4,1fr);gap:32px;padding-left:0;padding-top:44px}
+  .steps::before{left:0;right:0;top:6px;bottom:auto;width:auto;height:1px}
+  .steps::after{left:0;top:6px;height:1px;width:calc(100% * var(--sp,0))}
+  .step{padding:0}
+  .step::before{left:0;top:-44px}
+  .inq{grid-template-columns:7fr 4fr;gap:48px}
+  .side{position:sticky;top:110px}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap hd-in">
+    <a href="index.html" class="logo" aria-label="GLOWUS 홈"><i></i>GLOWUS</a>
+    <ul class="gnb" aria-label="주요 메뉴">
+      <li><a href="company.html">회사소개</a><div class="sub"><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></div></li>
+      <li><a href="technology.html">기술</a><div class="sub"><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></div></li>
+      <li><a href="cases.html">적용사례</a><div class="sub"><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></div></li>
+      <li><a href="contact.html">협업 · 문의</a><div class="sub"><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></div></li>
+    </ul>
+    <div class="hd-act">
+      <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+      <button type="button" class="menu-btn" popovertarget="mnav" aria-label="메뉴 열기"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<nav id="mnav" popover class="mnav" aria-label="모바일 메뉴">
+  <details><summary>회사소개</summary><a href="company.html#overview">회사 개요</a><a href="company.html#history">연혁</a><a href="company.html#ip">특허 · 인증</a><a href="company.html#location">오시는 길</a></details>
+  <details><summary>기술</summary><a href="technology.html#core">핵심 기술</a><a href="technology.html#fld">FLD</a><a href="technology.html#el">EL Display</a><a href="technology.html#value">적용 가치</a></details>
+  <details><summary>적용사례</summary><a href="cases.html#areas">주요 적용 분야</a><a href="cases.html#projects">프로젝트 사례</a></details>
+  <details><summary>협업 · 문의</summary><a href="contact.html#partnership">협업 방식</a><a href="contact.html#process">개발 프로세스</a><a href="contact.html#inquiry">문의하기</a></details>
+  <a href="contact.html#inquiry" class="btn btn-glow">문의하기</a>
+</nav>
+
+<main>
+<section class="phero">
+  <div class="wrap">
+    <p class="crumb rise">HOME / <b>협업 · 문의</b></p>
+    <h1 class="h1 rise" style="--i:1">제품에 기술을 더하는<br>가장 현실적인 방법</h1>
+    <p class="lead rise" style="--i:2">GLOWUS는 완제품 공급은 물론, 파트너사의 제품과 사용 환경에 FLD · EL Display 기술을 적용하는 공동개발 및 맞춤형 제작 방식으로 협업합니다.</p>
+    <nav class="ptabs rise" style="--i:3" aria-label="협업 · 문의 바로가기"><a href="#partnership">협업 방식</a><a href="#process">개발 프로세스</a><a href="#inquiry">문의하기</a></nav>
+  </div>
+</section>
+
+<!-- 협업 방식 -->
+<section class="sec light" id="partnership">
+  <div class="wrap">
+    <span class="label" data-reveal>PARTNERSHIP</span>
+    <h2 class="h2" data-reveal style="--i:1">세 가지만 알려주시면<br>더 빠르고 정확하게 검토합니다</h2>
+    <div class="qs">
+      <article class="q" data-reveal style="--i:0"><small>01. APPLICATION</small><h3>어디에 적용하나요?</h3><p>작업복, 안전모, 아웃도어용품, 안전표지 등 FLD · EL Display가 부착되거나 삽입될 제품을 알려주세요.</p></article>
+      <article class="q" data-reveal style="--i:1"><small>02. SPECIFICATION</small><h3>어떤 조건이 필요한가요?</h3><p>크기, 발광 형태, 디자인, 전원 방식, 작동 시간과 사용 환경 등 필요한 조건을 알려주세요.</p></article>
+      <article class="q" data-reveal style="--i:2"><small>03. DEVELOPMENT</small><h3>어느 단계의 개발인가요?</h3><p>아이디어 검토, 디자인 설계, 시제품 제작, 시험 또는 양산 중 필요한 단계를 알려주세요.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 개발 프로세스 -->
+<section class="sec black" id="process">
+  <div class="wrap">
+    <span class="label" data-reveal>SERVICE OVERVIEW</span>
+    <h2 class="h2" data-reveal style="--i:1">적용 환경에 맞춰<br>설계하고 개발합니다</h2>
+    <ol class="steps" id="steps">
+      <li class="step"><span class="num">01</span><h3>DEFINE</h3><h4>요구사항 확인</h4><p>적용 제품, 사용 환경, 크기, 발광 형태, 작동 시간과 전원 조건을 확인합니다.</p></li>
+      <li class="step"><span class="num">02</span><h3>DESIGN</h3><h4>발광부 및 시스템 설계</h4><p>발광 그래픽과 회로 구조를 설계하고 인버터, 배터리 및 제어 방식을 결정합니다.</p></li>
+      <li class="step"><span class="num">03</span><h3>PROTOTYPE</h3><h4>샘플 제작 및 검토</h4><p>적용 목적에 맞는 시제품을 제작하고 발광 상태, 조립성 및 실제 사용 가능성을 검토합니다.</p></li>
+      <li class="step"><span class="num">04</span><h3>VALIDATE</h3><h4>시험 및 양산 협의</h4><p>사용 환경에 필요한 내구성, 방수 및 전기적 조건을 확인하고, 수정 · 보완 후 양산 조건을 협의합니다.</p></li>
+    </ol>
+    <div class="road" data-reveal><span>적용 가능성 검토</span><i>→</i><span>사양 협의</span><i>→</i><span>샘플 제작</span><i>→</i><span>테스트</span><i>→</i><span>양산 협의</span></div>
+    <div class="price">
+      <div data-reveal style="--i:0"><small>FLD 최초 개발비 (디자인 설계비)</small><b>약 200만원 전후</b><span>제품 개당 단가는 최종 디자인과 발주 수량 확정 후 산정</span></div>
+      <div data-reveal style="--i:1"><small>EL Display 최초 개발비 (디자인 설계비)</small><b>약 150~200만원</b><span>주문 제작 방식으로, 디자인이 나와야 개당 단가 산정 가능</span></div>
+    </div>
+    <p class="note" data-reveal>개발비와 단가는 제품 디자인, 사이즈, 제작 방식에 따라 달라질 수 있으며, 시험 · 인증 비용은 필요 항목과 수행 기관에 따라 별도 산정합니다.</p>
+  </div>
+</section>
+
+<!-- 문의하기 -->
+<section class="sec light" id="inquiry">
+  <div class="wrap">
+    <span class="label" data-reveal>CONTACT</span>
+    <h2 class="h2" data-reveal style="--i:1">협업 문의</h2>
+    <p class="lead" data-reveal style="--i:2">적용 환경과 필요한 조건을 알려주시면 검토 후 제안드립니다.</p>
+    <div class="inq">
+      <form class="form" id="inq-form" method="post" action="#inquiry" novalidate data-reveal>
+        <div class="f">
+          <span class="lbl">문의 유형 <span class="req">*</span></span>
+          <div class="kinds" role="radiogroup" aria-label="문의 유형">
+            <label><input type="radio" name="consultType" value="제품 적용 · 공동개발 문의" checked><span>제품 적용 · 공동개발</span></label>
+            <label><input type="radio" name="consultType" value="맞춤 제작 문의"><span>맞춤 제작</span></label>
+            <label><input type="radio" name="consultType" value="구매 · 견적 문의"><span>구매 · 견적</span></label>
+            <label><input type="radio" name="consultType" value="기타 문의"><span>기타</span></label>
+          </div>
+        </div>
+        <div class="two">
+          <div class="f"><label for="i-company">회사 · 기관명 <span class="req">*</span></label><input id="i-company" name="companyName" required autocomplete="organization"></div>
+          <div class="f"><label for="i-name">담당자명 <span class="req">*</span></label><input id="i-name" name="contactName" required autocomplete="name"></div>
+          <div class="f"><label for="i-phone">연락처 <span class="req">*</span></label><input id="i-phone" name="phone" type="tel" required autocomplete="tel" placeholder="010-0000-0000"></div>
+          <div class="f"><label for="i-email">이메일 <span class="req">*</span></label><input id="i-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="f"><label for="i-use">적용 제품 · 현장</label><input id="i-use" name="useCase" placeholder="예: 작업자 안전조끼, 도로 표지"></div>
+          <div class="f"><label for="i-qty">예상 수량</label><input id="i-qty" name="expectedQty" placeholder="예: 시제품 10개, 양산 1,000개"></div>
+        </div>
+        <div class="f"><label for="i-stage">개발 단계</label>
+          <select id="i-stage" name="stage"><option value="">선택해 주세요</option><option>아이디어 검토</option><option>디자인 설계</option><option>시제품 제작</option><option>시험 · 양산</option></select>
+        </div>
+        <div class="f"><label for="i-msg">문의 내용</label><textarea id="i-msg" name="message" placeholder="크기, 발광 형태, 전원 방식, 작동 시간, 사용 환경 등 필요한 조건을 적어 주세요."></textarea></div>
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="agree"><input type="checkbox" name="agree" required> <span>상담을 위한 개인정보(회사명 · 담당자명 · 연락처 · 이메일) 수집 · 이용에 동의합니다.<br>수집한 정보는 상담 완료 후 1년간 보관합니다.</span></label>
+        <button type="submit" class="btn btn-glow" style="color:#02222c">문의 보내기 <span class="arr">→</span></button>
+        <p class="status" id="inq-status" role="status"></p>
+      </form>
+      <aside class="side">
+        <div class="card" data-reveal>
+          <h3>바로 연락하기</h3>
+          <dl style="margin-top:8px">
+            <div><dt>제품 관련 문의</dt><dd><a href="tel:01034610063">010-3461-0063</a></dd></div>
+            <div><dt>이메일</dt><dd><a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+            <div><dt>주소</dt><dd style="font-size:var(--fs-16)">경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+          </dl>
+        </div>
+        <div class="card" data-reveal style="--i:1">
+          <h3>문의 전 준비하면 좋은 자료</h3>
+          <ul><li>제품 사진 또는 도면</li><li>희망 발광 이미지</li><li>적용 위치와 크기</li><li>사용 환경 (실내 · 실외, 방수 등)</li><li>예상 수량</li></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div><a href="index.html" class="logo"><i></i>GLOWUS</a><p class="slogan">LIGHT FOR SAFER NIGHTS</p></div>
+      <nav class="ft-links" aria-label="푸터 메뉴"><a href="company.html">회사소개</a><a href="technology.html">기술</a><a href="cases.html">적용사례</a><a href="contact.html">협업 · 문의</a></nav>
+    </div>
+    <dl>
+      <div><dt>상호</dt><dd>주식회사 글로우어스</dd></div>
+      <div><dt>대표자</dt><dd>유미나</dd></div>
+      <div><dt>사업자등록번호</dt><dd>842-86-02686</dd></div>
+      <div style="white-space:normal"><dt>주소</dt><dd>경기도 화성시 동탄구 동탄기흥로 570-6, 907호</dd></div>
+      <div><dt>통신판매업번호</dt><dd>2023-화성동탄-1630</dd></div>
+      <div><dt>제품 문의</dt><dd><a href="tel:01034610063">010-3461-0063</a></dd></div>
+      <div><dt>이메일</dt><dd><a href="mailto:contact@glowus.co.kr">contact@glowus.co.kr</a></dd></div>
+    </dl>
+    <p class="copy">© 2026 ㈜다온닷컴. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/common.js?v=1"></script>
+<script>
+/* 문의 접수: 구글 Apps Script 웹앱 (시트 저장 + 담당자 메일). 기존 주문상담과 같은 시트·주소 */
+const INQUIRY_ENDPOINT = 'https://script.google.com/macros/s/AKfycby71hdO5zYp68DzzYuTkZDIU9VqF2TW3SFcE9nLnraPucIoOqCJbDYQOBam6JDO9PFHCA/exec';
+
+(() => {
+  const { $, progress, onFrame } = G;
+
+  /* 개발 프로세스: 스크롤 따라 선이 이어지며 단계 점등 */
+  const steps = $('#steps'), items = [...steps.children];
+  onFrame(() => {
+    const p = progress(steps, .8, .45);
+    steps.style.setProperty('--sp', p.toFixed(3));
+    items.forEach((s, i) => s.classList.toggle('on', p >= i / (items.length - 1) - .02));
+  });
+
+  /* 문의 보내기 */
+  const form = $('#inq-form'), status = $('#inq-status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const d = new FormData(form);
+    if (d.get('website')) return; // 숨은 칸을 채운 스팸 봇
+    // 시트에 '개발 단계' 칸이 없어 문의 내용 앞에 붙여 보냄
+    const stage = d.get('stage');
+    if (stage) d.set('message', `[개발 단계] ${stage}\n${d.get('message') || ''}`);
+    d.delete('stage');
+    const btn = $('button[type=submit]', form);
+    btn.disabled = true; status.textContent = '문의를 보내는 중입니다…';
+    try {
+      const res = await fetch(INQUIRY_ENDPOINT, { method: 'POST', body: new URLSearchParams(d) });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error || 'fail');
+      form.reset();
+      status.textContent = '문의가 접수되었습니다. 검토 후 담당자가 연락드리겠습니다.';
+    } catch (err) {
+      status.textContent = '전송에 실패했습니다. contact@glowus.co.kr 또는 010-3461-0063으로 연락해 주세요.';
+    } finally { btn.disabled = false; }
+  });
+})();
+</script>
+</body>
+</html>
