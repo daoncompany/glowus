@@ -7,9 +7,9 @@
 <meta name="description" content="주식회사 글로우어스는 초박형 면발광 FLD와 EL Display로 작업자·도로·시설물의 야간 안전을 만드는 야간 안전 솔루션 전문기업입니다.">
 <meta property="og:title" content="GLOWUS 글로우어스 — Light for safer nights">
 <meta property="og:description" content="선명한 빛으로, 더 안전한 야간 환경을 만듭니다. FLD · EL Display 야간 안전 솔루션">
-<meta property="og:image" content="assets/brand/el-arc.webp">
+<meta property="og:image" content="assets/brand/helmet.webp">
 <meta name="theme-color" content="#000000">
-<link rel="preload" as="image" href="assets/brand/el-arc.webp">
+<link rel="preload" as="image" href="assets/brand/helmet.webp">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css?v=2">
 <style>
@@ -18,10 +18,10 @@
 /* 1. 첫 화면: EL 시트가 깜빡이며 켜지고, 스크롤하면 밤이 깊어지며 빛이 커진다 */
 .scene{height:240vh;--p:0;background:var(--black)}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden}
-.arc{position:absolute;right:-18%;bottom:6svh;width:min(150vw,1100px);aspect-ratio:1438/782;
+.arc{position:absolute;right:-6%;bottom:5svh;width:min(74vw,440px);aspect-ratio:1200/1290;
   transform:translate(calc(var(--p) * -16vw),calc(var(--p) * -14svh)) scale(calc(1 + var(--p) * .25));transform-origin:70% 60%}
 .arc img{position:absolute;inset:0;width:100%;height:100%}
-.arc .base{filter:brightness(calc(.9 - var(--p) * .55));-webkit-mask:radial-gradient(closest-side at 62% 62%,#000 70%,transparent);mask:radial-gradient(closest-side at 62% 62%,#000 70%,transparent);animation:settle 2.4s var(--ease) both}
+.arc .base{filter:brightness(calc(.9 - var(--p) * .55));animation:settle 2.4s var(--ease) both}
 .arc .glowpack{position:absolute;inset:0;animation:power 1.8s .9s steps(1,end) both}
 .arc .g1{opacity:calc(.7 + var(--p) * .3)}
 .arc .g2{filter:blur(16px);opacity:calc(.4 + var(--p) * .6)}
@@ -35,7 +35,7 @@
 .hero-copy .h1{margin-top:18px}
 .hero-copy .en{margin-top:20px;font-size:var(--fs-14);color:var(--muted);letter-spacing:.02em}
 .hero-copy .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
-.night{position:absolute;inset:auto 0 12svh;z-index:2;text-align:center;opacity:clamp(0,calc((var(--p) - .5) * 3),1);transform:translateY(calc((1 - var(--p)) * 50px))}
+.night{pointer-events:none;position:absolute;inset:auto 0 12svh;z-index:2;text-align:center;opacity:clamp(0,calc((var(--p) - .5) * 3),1);transform:translateY(calc((1 - var(--p)) * 50px))}
 .night b{display:block;font-size:var(--fs-96);line-height:.95;letter-spacing:var(--ls-96);font-weight:900}
 .night span{display:block;margin-top:18px;color:#b9c8d5;font-size:var(--fs-18)}
 .scroll-hint{position:absolute;left:50%;bottom:26px;z-index:3;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:var(--fs-12);letter-spacing:.2em;color:var(--muted);opacity:calc(1 - var(--p) * 5)}
@@ -139,7 +139,7 @@ a:hover .more .arr,.more:hover .arr{transform:translateX(4px)}
 }
 @media (min-width:1080px){
   .hero-copy{padding-top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;max-width:640px}
-  .arc{right:-8%;bottom:4svh;width:min(78vw,1180px)}
+  .arc{right:6%;bottom:4svh;width:min(42vw,640px)}
   .ba{grid-template-columns:5fr 6fr;gap:80px}
   .ba-list{grid-template-columns:1fr 1fr}
   .areas{grid-template-columns:repeat(3,1fr);gap:48px}
@@ -183,11 +183,11 @@ a:hover .more .arr,.more:hover .arr{transform:translateX(4px)}
 <section class="scene" id="scene" aria-label="GLOWUS 소개">
   <div class="stage">
     <div class="arc" aria-hidden="true">
-      <img class="base" src="assets/brand/el-arc.webp" alt="" width="1438" height="782">
+      <img class="base" src="assets/brand/helmet.webp" alt="" width="1200" height="1290">
       <div class="glowpack">
-        <img class="g3" src="assets/brand/el-arc-glow.webp" alt="">
-        <img class="g2" src="assets/brand/el-arc-glow.webp" alt="">
-        <img class="g1" src="assets/brand/el-arc-glow.webp" alt="">
+        <img class="g3" src="assets/brand/helmet-glow.webp" alt="">
+        <img class="g2" src="assets/brand/helmet-glow.webp" alt="">
+        <img class="g1" src="assets/brand/helmet-glow.webp" alt="">
       </div>
     </div>
     <div class="wrap">
