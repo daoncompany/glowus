@@ -166,7 +166,7 @@ h1,h2,h3,.h1,.h2{text-wrap:balance}
 /* ---------- 푸터 ---------- */
 .ft{background:var(--black);border-top:1px solid var(--line);padding:56px 0 calc(110px + env(safe-area-inset-bottom));font-size:var(--fs-14);color:var(--muted)}
 .ft-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
-.ft .slogan{margin-top:8px;font-size:var(--fs-12);letter-spacing:.12em;color:#7d8fa0}
+.ft .slogan{margin-top:8px;font-size:var(--fs-12);letter-spacing:.04em;color:#7d8fa0}
 .ft-links{display:flex;flex-wrap:wrap;gap:6px 22px}
 .ft-links a:hover{color:var(--glow)}
 .ft dl{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:32px}
