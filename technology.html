@@ -9,7 +9,7 @@
 <meta property="og:image" content="assets/tech/fld-diagram.webp">
 <meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 <style>
 /* 점광원 vs 면발광 체험 */
 .lab{display:grid;gap:48px;align-items:center;margin-top:56px}
@@ -23,10 +23,10 @@
 .demo[data-mode="surface"] .halo{opacity:.55}
 .demo[data-mode="surface"] .dots circle{opacity:0}
 .demo .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:var(--fs-14);color:var(--muted)}
-.seg2{display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:15px;background:var(--paper-2);position:relative;margin-top:32px}
+.seg2{display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:var(--paper-2);position:relative;margin-top:32px}
 .seg2 button{position:relative;z-index:1;border:0;background:none;padding:12px 22px;font-weight:800;font-size:var(--fs-14);color:var(--paper-muted);transition:color .3s}
 .seg2 button[aria-pressed="true"]{color:#fff}
-.seg2 i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:15px;background:var(--paper-ink);transition:transform .45s var(--ease)}
+.seg2 i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--paper-ink);transition:transform .45s var(--ease)}
 .seg2[data-mode="surface"] i{transform:translateX(100%)}
 .lab .points{margin-top:32px;display:grid;gap:12px}
 .lab .points div{padding:22px 24px;border-radius:var(--r);background:#fff;border:1px solid var(--paper-line)}

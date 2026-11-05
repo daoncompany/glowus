@@ -62,7 +62,7 @@ h1,h2,h3,.h1,.h2{text-wrap:balance}
 .head-c .lead{margin-inline:auto}
 
 /* ---------- 버튼 ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:15px;font-weight:800;font-size:var(--fs-16);white-space:nowrap;border:0;transition:transform .12s ease-out,background-color .25s,color .25s,border-color .25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:800;font-size:var(--fs-16);white-space:nowrap;border:0;transition:transform .12s ease-out,background-color .25s,color .25s,border-color .25s}
 .btn:active{transform:scale(.97)}
 .btn-glow{background:var(--glow);color:#02222c}
 .btn-glow:hover{background:#9af8ff}
@@ -117,7 +117,7 @@ h1,h2,h3,.h1,.h2{text-wrap:balance}
 .phero .h1{margin-top:18px}
 .phero .lead{color:#b9c8d5}
 .ptabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:40px}
-.ptabs a{padding:10px 18px;border-radius:15px;border:1px solid var(--line);font-size:var(--fs-14);color:#c9d6e2;transition:border-color .2s,color .2s,background-color .2s}
+.ptabs a{padding:10px 18px;border-radius:999px;border:1px solid var(--line);font-size:var(--fs-14);color:#c9d6e2;transition:border-color .2s,color .2s,background-color .2s}
 .ptabs a:hover{border-color:var(--glow);color:var(--glow)}
 
 /* ---------- 등장 모션 ---------- */
@@ -177,7 +177,7 @@ h1,h2,h3,.h1,.h2{text-wrap:balance}
 .ft .copy{margin-top:28px;font-size:var(--fs-12);letter-spacing:var(--ls-12);color:rgba(157,176,188,.45)} /* 저작권: 눈에 덜 띄게 */
 
 /* 모바일 하단 문의 버튼 */
-.dock{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;display:flex;gap:8px;padding:8px;border-radius:15px;background:rgba(5,9,15,.7);backdrop-filter:blur(20px) saturate(170%);-webkit-backdrop-filter:blur(20px) saturate(170%);border:1px solid rgba(255,255,255,.12);transform:translateY(140%);transition:transform .5s var(--ease)}
+.dock{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(5,9,15,.7);backdrop-filter:blur(20px) saturate(170%);-webkit-backdrop-filter:blur(20px) saturate(170%);border:1px solid rgba(255,255,255,.12);transform:translateY(140%);transition:transform .5s var(--ease)}
 .dock.show{transform:none}
 .dock .btn{flex:1;min-height:46px;padding:0 12px}
 
