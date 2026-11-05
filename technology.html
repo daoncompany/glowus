@@ -9,11 +9,11 @@
 <meta property="og:image" content="assets/tech/fld-diagram.webp">
 <meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 <style>
 /* 점광원 vs 면발광 체험 */
 .lab{display:grid;gap:48px;align-items:center;margin-top:56px}
-.demo{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto;border-radius:28px;background:#05090f;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;padding:24px}
+.demo{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto;border-radius:15px;background:#05090f;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;padding:24px}
 .demo svg{width:72%;height:auto;overflow:visible}
 .demo .dots circle{fill:#bff;transition:opacity .6s var(--ease),r .6s var(--ease)}
 .demo .face{fill:var(--glow);opacity:0;transition:opacity .7s var(--ease)}
@@ -23,10 +23,10 @@
 .demo[data-mode="surface"] .halo{opacity:.55}
 .demo[data-mode="surface"] .dots circle{opacity:0}
 .demo .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:var(--fs-14);color:var(--muted)}
-.seg2{display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:var(--paper-2);position:relative;margin-top:32px}
+.seg2{display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:15px;background:var(--paper-2);position:relative;margin-top:32px}
 .seg2 button{position:relative;z-index:1;border:0;background:none;padding:12px 22px;font-weight:800;font-size:var(--fs-14);color:var(--paper-muted);transition:color .3s}
 .seg2 button[aria-pressed="true"]{color:#fff}
-.seg2 i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--paper-ink);transition:transform .45s var(--ease)}
+.seg2 i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:15px;background:var(--paper-ink);transition:transform .45s var(--ease)}
 .seg2[data-mode="surface"] i{transform:translateX(100%)}
 .lab .points{margin-top:32px;display:grid;gap:12px}
 .lab .points div{padding:22px 24px;border-radius:var(--r);background:#fff;border:1px solid var(--paper-line)}
@@ -35,20 +35,20 @@
 
 /* 기술 상세 (FLD / EL 공통) */
 .td{display:grid;gap:48px;margin-top:56px;align-items:start}
-.td .fig{border-radius:24px;background:#fff;padding:28px;display:grid;place-items:center}
+.td .fig{border-radius:15px;background:#fff;padding:28px;display:grid;place-items:center}
 .td .fig img{width:100%;height:auto}
 .td .name small{font-size:var(--fs-18);color:var(--muted)}
 .td .name b{display:block;font-size:var(--fs-96);line-height:.95;letter-spacing:var(--ls-96);font-weight:900;color:var(--glow);margin-top:8px}
 .td h3{font-size:var(--fs-36);letter-spacing:var(--ls-36);line-height:1.25;margin-top:32px}
 .td p{color:#c3d1dd;margin-top:16px;font-size:var(--fs-18);letter-spacing:var(--ls-18)}
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
-.feats div{padding:22px 20px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.feats div{padding:22px 20px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
 .feats b{display:block;font-size:var(--fs-14);letter-spacing:.06em;color:var(--glow);font-weight:900}
 .feats span{display:block;margin-top:6px;color:#c3d1dd}
 
 /* 전원 흐름: 빛 알갱이가 선을 따라 흐름 */
 .flow{display:grid;margin-top:40px}
-.flow .node{padding:18px 20px;border-radius:16px;background:#0b1522;border:1px solid var(--line);text-align:center}
+.flow .node{padding:18px 20px;border-radius:15px;background:#0b1522;border:1px solid var(--line);text-align:center}
 .flow .node b{display:block}
 .flow .node small{color:var(--muted);font-size:var(--fs-14)}
 .flow .node:last-child{border-color:var(--glow);background:linear-gradient(180deg,rgba(95,243,255,.12),#0b1522)}
@@ -67,11 +67,11 @@
 
 /* 적용 가치 + 선택 가이드 */
 .big3{display:grid;gap:12px;margin-top:56px}
-.big3 div{padding:36px 28px;border-radius:24px;background:var(--paper-ink);color:#fff}
+.big3 div{padding:36px 28px;border-radius:15px;background:var(--paper-ink);color:#fff}
 .big3 b{display:block;font-size:var(--fs-48);letter-spacing:var(--ls-48);line-height:1;font-weight:900}
 .big3 strong{display:block;margin-top:20px;font-size:var(--fs-18)}
 .big3 span{display:block;margin-top:4px;color:#9fb2c3}
-.guide{margin-top:72px;border-radius:24px;overflow:hidden;border:1px solid var(--paper-line);background:#fff}
+.guide{margin-top:72px;border-radius:15px;overflow:hidden;border:1px solid var(--paper-line);background:#fff}
 .guide .row{display:grid;grid-template-columns:96px 1fr 1fr;border-top:1px solid var(--paper-line)}
 .guide .row:first-child{border-top:0;background:var(--paper-ink);color:#fff}
 .guide .row>*{padding:16px 18px;font-size:var(--fs-14)}
