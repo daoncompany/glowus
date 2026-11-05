@@ -56,12 +56,13 @@
 
 /* 4. 두 가지 기술 */
 .techs{display:grid;gap:20px;margin-top:56px}
-.tech{position:relative;display:grid;border-radius:15px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,rgba(95,243,255,.08),transparent 55%),#070d14;transition:border-color .4s,transform .5s var(--ease)}
+.tech{position:relative;display:grid;grid-template-rows:auto 1fr;min-width:0;border-radius:15px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,rgba(95,243,255,.08),transparent 55%),#070d14;transition:border-color .4s,transform .5s var(--ease)}
 .tech:hover{border-color:rgba(95,243,255,.5);transform:translateY(-4px)}
-.tech .fig{background:#fff;aspect-ratio:16/10;display:grid;place-items:center;padding:24px}
-.tech .fig img{max-height:100%;width:auto;transition:transform 1s var(--ease)}
+.tech .fig{background:#fff;aspect-ratio:16/10;padding:24px;min-height:0}
+.tech .fig img{display:block;width:100%;height:100%;object-fit:contain;transition:transform 1s var(--ease)}
 .tech:hover .fig img{transform:scale(1.04)}
-.tech .txt{padding:32px 28px 36px}
+.tech .txt{padding:32px 28px 36px;display:flex;flex-direction:column;align-items:flex-start}
+.tech .more{margin-top:auto;padding-top:28px} /* 칩 줄 수가 달라도 링크는 카드 바닥에 맞춤 */
 .tech .sub-t{font-size:var(--fs-14);color:var(--muted)}
 .tech h3{font-size:var(--fs-48);letter-spacing:var(--ls-48);line-height:1.1;font-weight:850;margin-top:6px}
 .tech p{color:#b9c8d5;margin-top:14px}
